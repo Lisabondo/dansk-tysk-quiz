@@ -10,212 +10,265 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 40% at 10% 20%,rgba(29,107,107,0.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 80%,rgba(196,118,42,0.07) 0%,transparent 60%);pointer-events:none;z-index:0}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,240,232,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--teal)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,240,232,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.2rem;gap:.5rem}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:var(--teal);flex-shrink:0}
 .nav-logo span{color:var(--amber)}
-.nav-links{display:flex;gap:.3rem;align-items:center}
-.nav-btn{background:none;border:none;padding:.45rem .9rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s}
+.nav-links{display:flex;gap:.2rem;align-items:center;flex-wrap:wrap}
+.nav-btn{background:none;border:none;padding:.4rem .75rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s;line-height:1.3;text-align:center}
 .nav-btn:hover{background:var(--cream-dark);color:var(--text)}
 .nav-btn.active{background:var(--teal);color:#fff}
-.nav-sync{font-size:.7rem;padding:.3rem .7rem;border-radius:100px;border:1.5px solid var(--border);color:var(--text-soft);cursor:pointer;background:#fff;transition:all .15s}
+.nav-sync{font-size:.68rem;padding:.28rem .6rem;border-radius:100px;border:1.5px solid var(--border);color:var(--text-soft);cursor:pointer;background:#fff;transition:all .15s;flex-shrink:0}
 .nav-sync.ok{border-color:var(--green);color:var(--green)}
 .nav-sync.err{border-color:var(--red);color:var(--red)}
-.container{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:5rem 2rem 2rem;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-.screen{width:100%;display:none;flex-direction:column;align-items:center;padding-top:1rem}
+.container{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:5rem 1.5rem 2rem;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.screen{width:100%;display:none;flex-direction:column;align-items:center;padding-top:.5rem}
 .screen.active{display:flex}
-.setup-box{background:#fff;border:2px solid var(--border);border-radius:24px;padding:2.4rem 2rem;max-width:480px;width:100%;text-align:center;box-shadow:0 4px 32px rgba(0,0,0,0.07)}
-.setup-icon{font-size:3rem;margin-bottom:.8rem}
-.setup-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--teal);margin-bottom:.5rem}
-.setup-desc{font-size:.88rem;color:var(--text-soft);line-height:1.6;margin-bottom:1.4rem}
-.setup-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;margin-bottom:.6rem;text-align:center;letter-spacing:.05em}
+/* Setup */
+.setup-box{background:#fff;border:2px solid var(--border);border-radius:24px;padding:2.2rem 1.8rem;max-width:460px;width:100%;text-align:center;box-shadow:0 4px 32px rgba(0,0,0,0.07)}
+.setup-icon{font-size:2.8rem;margin-bottom:.7rem}
+.setup-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--teal);margin-bottom:.2rem}
+.setup-title-de{font-size:.88rem;color:var(--text-soft);font-style:italic;margin-bottom:.8rem}
+.setup-desc{font-size:.83rem;color:var(--text-soft);line-height:1.6;margin-bottom:1rem}
+.setup-input{width:100%;border:2px solid var(--border);border-radius:12px;padding:.7rem 1rem;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;margin-bottom:.5rem;text-align:center;letter-spacing:.05em}
 .setup-input:focus{border-color:var(--teal)}
-.setup-note{font-size:.75rem;color:var(--text-soft);margin-bottom:1.2rem;background:var(--amber-pale);border-radius:8px;padding:.6rem .9rem}
-.setup-btn{background:var(--teal);color:#fff;border:none;border-radius:12px;padding:.85rem 2.4rem;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(29,107,107,0.2);width:100%}
+.setup-note{font-size:.72rem;color:var(--text-soft);margin-bottom:1rem;background:var(--amber-pale);border-radius:8px;padding:.55rem .85rem;line-height:1.5}
+.who-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.55rem}
+.who-btns{display:flex;gap:.6rem;margin-bottom:1rem}
+.who-btn{flex:1;background:var(--cream);border:2.5px solid var(--border);border-radius:12px;padding:.7rem .5rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.25rem}
+.who-btn:hover{border-color:var(--teal)}
+.who-btn.selected{background:var(--teal);border-color:var(--teal);color:#fff}
+.who-btn .wf{font-size:1.6rem}
+.who-btn .wn{font-size:.78rem}
+.who-btn .ws{font-size:.62rem;opacity:.7}
+.setup-btn{background:var(--teal);color:#fff;border:none;border-radius:12px;padding:.82rem 2.2rem;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(29,107,107,0.2);width:100%}
 .setup-btn:hover{background:var(--teal-light);transform:translateY(-2px)}
-.mode-hero{text-align:center;margin-bottom:2rem}
+/* Mode */
+.mode-hero{text-align:center;margin-bottom:1.5rem}
 .mode-logo{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--teal)}
 .mode-logo span{color:var(--amber)}
-.mode-tagline{margin-top:.4rem;font-size:.92rem;color:var(--text-soft);font-weight:300}
-.mode-question{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:1.5rem;text-align:center}
-.mode-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;width:100%;max-width:520px}
-.mode-card{background:#fff;border:3px solid var(--border);border-radius:20px;padding:2rem 1.4rem;text-align:center;cursor:pointer;transition:all .2s}
+.mode-tagline{margin-top:.3rem;font-size:.85rem;color:var(--text-soft)}
+.mode-question{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:1.4rem;text-align:center;line-height:1.5}
+.mode-question .de{display:block;font-size:.8rem;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--text-soft);font-style:italic;margin-top:.2rem}
+.mode-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%;max-width:500px}
+.mode-card{background:#fff;border:3px solid var(--border);border-radius:18px;padding:1.7rem 1.2rem;text-align:center;cursor:pointer;transition:all .2s}
 .mode-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.1)}
 .together-card:hover{border-color:var(--teal)}
 .apart-card:hover{border-color:var(--amber)}
-.mode-card-icon{font-size:2.8rem;display:block;margin-bottom:.7rem}
-.mode-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--text)}
-.mode-card-sub{font-size:.75rem;color:var(--text-soft);margin-bottom:.6rem}
-.mode-card-desc{font-size:.78rem;color:var(--text-soft);line-height:1.5}
-.logo{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--teal);line-height:1}
+.mc-icon{font-size:2.5rem;display:block;margin-bottom:.6rem}
+.mc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--text)}
+.mc-de{display:block;font-size:.72rem;font-family:'DM Sans',sans-serif;font-weight:400;color:var(--text-soft);font-style:italic;margin-top:.15rem}
+.mc-sub{font-size:.7rem;color:var(--text-soft);margin:.35rem 0 .45rem}
+.mc-desc{font-size:.73rem;color:var(--text-soft);line-height:1.5}
+/* Incoming note */
+.note-banner{width:100%;max-width:520px;margin:0 auto 1.3rem;background:#fff;border:2.5px solid var(--amber);border-radius:16px;padding:1rem 1.2rem}
+.note-from{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:.35rem}
+.note-text{font-size:.95rem;color:var(--text);line-height:1.5;margin-bottom:.65rem}
+.note-dismiss{background:none;border:1.5px solid var(--border);border-radius:8px;padding:.3rem .85rem;font-size:.73rem;color:var(--text-soft);cursor:pointer;transition:all .15s}
+.note-dismiss:hover{border-color:var(--red);color:var(--red)}
+/* Home / game setup */
+.logo{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--teal);line-height:1}
 .logo span{color:var(--amber)}
-.logo-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .7rem;border-radius:100px;margin-top:.3rem}
+.logo-badge{display:inline-block;font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .65rem;border-radius:100px;margin-top:.25rem}
 .logo-badge.together{background:var(--teal-pale);color:var(--teal)}
 .logo-badge.apart{background:var(--amber-pale);color:var(--amber)}
-.tagline{margin-top:.3rem;font-size:.9rem;color:var(--text-soft);font-weight:300}
-.back-link{font-size:.8rem;color:var(--text-soft);cursor:pointer;text-decoration:underline;margin-bottom:1rem}
-.back-link:hover{color:var(--teal)}
-.player-setup{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%;max-width:560px;margin-bottom:1.6rem}
-.player-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.2rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s}
+.tagline{margin-top:.25rem;font-size:.8rem;color:var(--text-soft)}
+.section-label{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.55rem;text-align:center}
+.player-setup{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;width:100%;max-width:540px;margin-bottom:1.1rem}
+.player-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.35rem;transition:border-color .2s}
 .player-card:focus-within{border-color:var(--teal)}
-.player-flag{font-size:1.8rem;text-align:center}
-.player-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center}
-.player-card input,.solo-card input{width:100%;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:1rem;padding:.3rem 0;text-align:center;outline:none;color:var(--text);transition:border-color .2s}
-.player-card input:focus,.solo-card input:focus{border-color:var(--teal)}
-.solo-select{width:100%;max-width:560px;margin-bottom:1.6rem}
-.solo-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center;margin-bottom:.8rem}
-.solo-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.solo-card{background:#fff;border:3px solid var(--border);border-radius:16px;padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s}
+.player-flag{font-size:1.7rem;text-align:center}
+.player-label{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center;line-height:1.4}
+.player-card input{width:100%;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:.95rem;padding:.25rem 0;text-align:center;outline:none;color:var(--text);transition:border-color .2s}
+.player-card input:focus{border-color:var(--teal)}
+.solo-label{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);text-align:center;margin-bottom:.65rem}
+.solo-cards{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.solo-card{background:#fff;border:3px solid var(--border);border-radius:14px;padding:.95rem;text-align:center;cursor:pointer;transition:all .2s}
 .solo-card:hover{border-color:var(--amber)}
 .solo-card.selected{border-color:var(--amber);background:var(--amber-pale)}
-.solo-card .sf{font-size:1.9rem;margin-bottom:.3rem}
-.solo-card .sn{font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft)}
-.section-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.6rem;text-align:center}
-.game-picker{width:100%;max-width:720px}
-.game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
-.game-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:.9rem .6rem;text-align:center;cursor:pointer;transition:all .18s}
-.game-card:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 4px 16px rgba(29,107,107,0.12)}
+.solo-card .sf{font-size:1.8rem;margin-bottom:.25rem}
+.solo-card input{width:100%;border:none;border-bottom:2px solid var(--border);text-align:center;background:transparent;font-size:.88rem;font-weight:600;outline:none;padding:.18rem 0;margin:.25rem 0}
+.solo-card .sn{font-size:.62rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-soft)}
+.game-picker{width:100%;max-width:700px}
+.game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+.game-card{background:#fff;border:2px solid var(--border);border-radius:13px;padding:.8rem .55rem;text-align:center;cursor:pointer;transition:all .18s}
+.game-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .game-card.selected{border-color:var(--teal);background:var(--teal);color:#fff}
-.game-card.sc.selected{background:var(--purple);border-color:var(--purple)}
+.game-card.sc{border-color:rgba(107,77,138,.3)}
 .game-card.sc:hover:not(.selected){border-color:var(--purple)}
-.gc-icon{font-size:1.4rem;display:block;margin-bottom:.35rem}
-.gc-name{font-size:.78rem;font-weight:600;display:block}
-.gc-sub{font-size:.65rem;opacity:.65;display:block;margin-top:.1rem}
-.divider{grid-column:1/-1;display:flex;align-items:center;gap:.5rem;margin:.2rem 0}
+.game-card.sc.selected{background:var(--purple);border-color:var(--purple)}
+.gc-icon{font-size:1.3rem;display:block;margin-bottom:.28rem}
+.gc-name{font-size:.73rem;font-weight:600;display:block}
+.gc-de{font-size:.63em;font-weight:400;opacity:.7;font-style:italic}
+.gc-sub{font-size:.58rem;opacity:.6;display:block;margin-top:.08rem}
+.divider{grid-column:1/-1;display:flex;align-items:center;gap:.45rem;margin:.1rem 0}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.divider span{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);white-space:nowrap}
-.rounds-row{margin-top:1.1rem;display:flex;align-items:center;justify-content:center;gap:.9rem}
-.rounds-btns{display:flex;gap:.4rem}
-.rounds-btn{background:#fff;border:2px solid var(--border);border-radius:8px;padding:.35rem .8rem;font-family:'DM Sans',sans-serif;font-size:.85rem;cursor:pointer;transition:all .18s;color:var(--text)}
+.divider span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);white-space:nowrap}
+.rounds-row{margin-top:.9rem;display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.rounds-btns{display:flex;gap:.35rem}
+.rounds-btn{background:#fff;border:2px solid var(--border);border-radius:8px;padding:.32rem .75rem;font-family:'DM Sans',sans-serif;font-size:.83rem;cursor:pointer;transition:all .18s;color:var(--text)}
 .rounds-btn:hover{border-color:var(--teal)}
 .rounds-btn.selected{background:var(--teal);border-color:var(--teal);color:#fff}
-.play-btn{margin-top:1.6rem;background:var(--amber);color:#fff;border:none;border-radius:14px;padding:1rem 3.2rem;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(196,118,42,0.3)}
+.play-btn{margin-top:1.4rem;background:var(--amber);color:#fff;border:none;border-radius:13px;padding:.95rem 2.8rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(196,118,42,0.3)}
 .play-btn:hover{background:var(--amber-light);transform:translateY(-2px)}
-.pass-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:1.1rem}
+/* Pass */
+.pass-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:.95rem}
 .pass-flag{font-size:5rem;animation:popIn .4s ease}
 @keyframes popIn{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-.pass-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--text);line-height:1.2}
+.pass-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--text);line-height:1.3}
 .pass-title span{color:var(--teal)}
-.pass-sub{font-size:.88rem;color:var(--text-soft)}
-.pass-tip{background:#fff;border:2px solid var(--border);border-radius:12px;padding:.85rem 1.2rem;max-width:380px;font-size:.8rem;color:var(--text-soft);line-height:1.5;text-align:left}
-.pass-tip strong{color:var(--teal);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.25rem}
-.pass-btn{background:var(--teal);color:#fff;border:none;border-radius:16px;padding:1rem 3.5rem;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(29,107,107,0.3);margin-top:.6rem}
+.pass-de{display:block;font-size:.63rem;font-family:'DM Sans',sans-serif;font-weight:400;color:var(--text-soft);font-style:italic;margin-top:.3rem}
+.pass-sub{font-size:.83rem;color:var(--text-soft);line-height:1.5}
+.pass-tip{background:#fff;border:2px solid var(--border);border-radius:12px;padding:.8rem 1.1rem;max-width:370px;font-size:.78rem;color:var(--text-soft);line-height:1.5;text-align:left}
+.pass-tip strong{color:var(--teal);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.22rem}
+.pass-btn{background:var(--teal);color:#fff;border:none;border-radius:15px;padding:.95rem 3.2rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(29,107,107,0.3)}
 .pass-btn:hover{background:var(--teal-light);transform:translateY(-2px)}
-.cal-header{width:100%;max-width:720px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem}
-.cal-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--teal)}
-.cal-nav-btn{background:#fff;border:2px solid var(--border);border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all .15s}
+/* Calendar */
+.cal-header{width:100%;max-width:700px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
+.cal-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;color:var(--teal)}
+.cal-nav-btn{background:#fff;border:2px solid var(--border);border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;transition:all .15s}
 .cal-nav-btn:hover{border-color:var(--teal)}
-.cal-streak{background:#fff;border:2px solid var(--amber);border-radius:12px;padding:.65rem 1.1rem;display:flex;align-items:center;gap:.6rem;margin-bottom:1.3rem}
-.streak-fire{font-size:1.3rem}.streak-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--amber)}
-.streak-label{font-size:.75rem;color:var(--text-soft);line-height:1.3}
+.cal-streak{background:#fff;border:2px solid var(--amber);border-radius:12px;padding:.6rem 1rem;display:flex;align-items:center;gap:.55rem;margin-bottom:1.1rem}
+.streak-fire{font-size:1.25rem}.streak-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:var(--amber)}
+.streak-label{font-size:.7rem;color:var(--text-soft);line-height:1.4}
 .cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px}
-.cal-weekday{text-align:center;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);padding:.3rem 0;font-weight:500}
+.cal-weekday{text-align:center;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-soft);padding:.28rem 0;font-weight:500}
 .cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal-day{aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;border:2px solid transparent;background:#fff}
+.cal-day{aspect-ratio:1;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;border:2px solid transparent;background:#fff}
 .cal-day:hover:not(.empty):not(.future){border-color:var(--teal)}
 .cal-day.empty{background:transparent;cursor:default}
-.cal-day.future{background:var(--cream-dark);opacity:.5;cursor:default}
+.cal-day.future{background:var(--cream-dark);opacity:.45;cursor:default}
 .cal-day.today{border-color:var(--teal)!important}
 .cal-day.done{background:var(--teal);color:#fff}
 .cal-day.done .cal-num{color:#fff}
-.cal-num{font-size:.88rem;font-weight:600}
-.cal-mode{font-size:.6rem;opacity:.9}
-.cal-stats{margin-top:1.3rem;display:flex;gap:.9rem;width:100%;max-width:720px}
-.cal-stat{background:#fff;border:2px solid var(--border);border-radius:12px;padding:.75rem .9rem;flex:1;text-align:center}
-.cs-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--teal)}
-.cs-label{font-size:.68rem;color:var(--text-soft);letter-spacing:.06em;text-transform:uppercase;margin-top:.2rem}
-.cal-legend{display:flex;gap:1rem;margin-top:.7rem;font-size:.72rem;color:var(--text-soft)}
-.mark-btn{margin-top:1.3rem;background:var(--teal);color:#fff;border:none;border-radius:12px;padding:.8rem 2.2rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(29,107,107,0.2)}
+.cal-num{font-size:.82rem;font-weight:600}
+.cal-mode{font-size:.56rem}
+.cal-stats{margin-top:1.1rem;display:flex;gap:.7rem;width:100%;max-width:700px}
+.cal-stat{background:#fff;border:2px solid var(--border);border-radius:11px;padding:.7rem .85rem;flex:1;text-align:center}
+.cs-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:var(--teal)}
+.cs-label{font-size:.6rem;color:var(--text-soft);letter-spacing:.05em;text-transform:uppercase;margin-top:.18rem;line-height:1.3}
+.mark-btn{margin-top:1.1rem;background:var(--teal);color:#fff;border:none;border-radius:11px;padding:.75rem 2rem;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s}
 .mark-btn:hover{background:var(--teal-light);transform:translateY(-2px)}
 .mark-btn.done-state{background:var(--green)}
-.scoreboard{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:720px;margin-bottom:1.3rem;gap:.8rem}
-.score-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:.75rem 1.1rem;text-align:center;flex:1;transition:all .3s}
-.score-card.active-player{border-color:var(--teal);background:var(--teal);color:#fff;box-shadow:0 4px 16px rgba(29,107,107,0.2)}
-.s-name{font-size:.68rem;font-weight:500;letter-spacing:.05em;opacity:.7;text-transform:uppercase}
+/* Game */
+.scoreboard{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:700px;margin-bottom:1.1rem;gap:.7rem}
+.score-card{background:#fff;border:2px solid var(--border);border-radius:13px;padding:.7rem .95rem;text-align:center;flex:1;transition:all .3s}
+.score-card.active-player{border-color:var(--teal);background:var(--teal);color:#fff}
+.s-name{font-size:.63rem;font-weight:500;letter-spacing:.05em;opacity:.7;text-transform:uppercase}
 .active-player .s-name{opacity:.85}
-.s-flag{font-size:1.2rem;margin:.1rem 0}
-.s-score{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900}
-.vs-badge{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text-soft);flex-shrink:0}
-.solo-scoreboard{display:flex;align-items:center;justify-content:center;width:100%;max-width:720px;margin-bottom:1.3rem}
-.solo-score-card{background:var(--teal);color:#fff;border:2px solid var(--teal);border-radius:14px;padding:.75rem 2.2rem;text-align:center;box-shadow:0 4px 16px rgba(29,107,107,0.2);display:flex;align-items:center;gap:1.1rem}
-.solo-score-card .s-score{font-size:1.9rem}
-.prog-info{font-size:.73rem;color:var(--text-soft);letter-spacing:.05em;margin-bottom:.3rem;text-align:center}
-.prog-wrap{width:100%;max-width:720px;height:4px;background:var(--cream-dark);border-radius:4px;margin-bottom:1.5rem;overflow:hidden}
+.s-flag{font-size:1.15rem;margin:.08rem 0}
+.s-score{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:900}
+.vs-badge{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--text-soft);flex-shrink:0}
+.solo-scoreboard{display:flex;align-items:center;justify-content:center;width:100%;max-width:700px;margin-bottom:1.1rem}
+.solo-score-card{background:var(--teal);color:#fff;border:2px solid var(--teal);border-radius:13px;padding:.7rem 2rem;text-align:center;display:flex;align-items:center;gap:1rem}
+.prog-info{font-size:.7rem;color:var(--text-soft);letter-spacing:.04em;margin-bottom:.28rem;text-align:center}
+.prog-wrap{width:100%;max-width:700px;height:4px;background:var(--cream-dark);border-radius:4px;margin-bottom:1.3rem;overflow:hidden}
 .prog-fill{height:100%;background:var(--teal);border-radius:4px;transition:width .4s ease}
-.q-card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:1.7rem 2rem;width:100%;max-width:720px;text-align:center;box-shadow:0 2px 24px rgba(0,0,0,0.05)}
-.whose-turn{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.35rem}
-.dir-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--cream-dark);border-radius:100px;padding:.22rem .85rem;font-size:.72rem;color:var(--text-soft);margin-bottom:.35rem;font-weight:500}
-.type-badge{display:inline-block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .6rem;border-radius:100px;font-weight:500;margin-bottom:.85rem}
+.q-card{background:#fff;border:2px solid var(--border);border-radius:18px;padding:1.5rem 1.6rem;width:100%;max-width:700px;text-align:center;box-shadow:0 2px 24px rgba(0,0,0,0.05)}
+.whose-turn{font-size:.63rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.28rem}
+.dir-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--cream-dark);border-radius:100px;padding:.2rem .8rem;font-size:.7rem;color:var(--text-soft);margin-bottom:.28rem;font-weight:500}
+.type-badge{display:inline-block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.13rem .55rem;border-radius:100px;font-weight:500;margin-bottom:.75rem}
 .type-badge.vocab{background:var(--teal-pale);color:var(--teal)}
 .type-badge.phrase{background:rgba(107,77,138,.1);color:var(--purple)}
 .type-badge.fill{background:var(--amber-pale);color:var(--amber)}
 .type-badge.order{background:rgba(58,122,74,.1);color:var(--green)}
-.type-badge.translate{background:rgba(184,64,64,.1);color:var(--red)}
-.q-word{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--text);line-height:1.15;margin-bottom:.35rem}
-.q-sent{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.3rem}
-.q-hint{font-size:.78rem;color:var(--text-soft);margin-bottom:1.3rem;font-style:italic}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.35rem}
-.opt{background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:.8rem;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);cursor:pointer;transition:all .18s;text-align:center;line-height:1.3}
+.q-word{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--text);line-height:1.15;margin-bottom:.28rem}
+.q-sent{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.28rem}
+.q-hint{font-size:.73rem;color:var(--text-soft);margin-bottom:1.1rem;font-style:italic;line-height:1.5}
+.q-hint .de{display:block;opacity:.75}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.3rem}
+.opts.single-col{grid-template-columns:1fr}
+.opt{background:var(--cream);border:2px solid var(--border);border-radius:11px;padding:.7rem;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text);cursor:pointer;transition:all .18s;text-align:center;line-height:1.3}
 .opt:hover:not(:disabled){border-color:var(--teal);background:#fff;transform:translateY(-1px)}
 .opt:disabled{cursor:default}
 .opt.correct{background:#E8F5EC;border-color:var(--green);color:var(--green);font-weight:500}
 .opt.wrong{background:#FCEAEA;border-color:var(--red);color:var(--red)}
-.wt-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.35rem}
-.wt{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;min-height:42px;padding:.45rem;border-radius:10px}
+.wt{display:flex;flex-wrap:wrap;gap:.38rem;justify-content:center;min-height:42px;padding:.42rem;border-radius:9px}
 .wt.bank{background:var(--cream-dark);border:2px dashed var(--border)}
 .wt.zone{background:#fff;border:2px solid var(--teal)}
-.tile{background:#fff;border:2px solid var(--border);border-radius:8px;padding:.35rem .7rem;font-family:'DM Sans',sans-serif;font-size:.9rem;cursor:pointer;transition:all .15s;user-select:none}
+.wt-label{font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.28rem}
+.tile{background:#fff;border:2px solid var(--border);border-radius:7px;padding:.32rem .65rem;font-family:'DM Sans',sans-serif;font-size:.85rem;cursor:pointer;transition:all .15s;user-select:none}
 .tile:hover{border-color:var(--teal);transform:translateY(-1px)}
 .tile.placed{background:var(--teal);border-color:var(--teal);color:#fff}
 .tile.ct{background:#E8F5EC;border-color:var(--green);color:var(--green)}
 .tile.wt2{background:#FCEAEA;border-color:var(--red);color:var(--red)}
-.check-btn{margin-top:.65rem;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:.55rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .18s}
+.check-btn{margin-top:.55rem;background:var(--teal);color:#fff;border:none;border-radius:9px;padding:.5rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .18s}
 .check-btn:hover{background:var(--teal-light)}
 .check-btn:disabled{opacity:.35;cursor:default}
-.fill-sent{font-size:1.2rem;font-family:'Playfair Display',serif;font-weight:700;line-height:1.5;margin-bottom:.9rem;color:var(--text)}
-.fill-blank{display:inline-block;min-width:80px;border-bottom:3px solid var(--teal);padding:0 4px;color:var(--teal);font-style:italic}
-.match-area{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;width:100%;margin-top:.45rem}
-.match-col-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.35rem;text-align:center}
-.match-col{display:flex;flex-direction:column;gap:.4rem}
-.mi{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:.65rem .75rem;font-size:.88rem;cursor:pointer;transition:all .18s;text-align:center}
-.mi:hover:not(.mc):not(.dis){border-color:var(--teal);background:#fff}
-.mi.sel{background:var(--teal);border-color:var(--teal);color:#fff}
-.mi.mc{background:#E8F5EC;border-color:var(--green);color:var(--green);cursor:default}
-.mi.mw{background:#FCEAEA;border-color:var(--red);color:var(--red)}
-.pronun{display:none;margin-top:.85rem;background:rgba(29,107,107,.05);border:1.5px solid rgba(29,107,107,.18);border-radius:12px;padding:.85rem 1rem;text-align:left}
+.fill-sent{font-size:1.05rem;font-family:'Playfair Display',serif;font-weight:700;line-height:1.5;margin-bottom:.75rem;color:var(--text)}
+.fill-blank{display:inline-block;min-width:75px;border-bottom:3px solid var(--teal);padding:0 4px;color:var(--teal);font-style:italic}
+.pronun{display:none;margin-top:.75rem;background:rgba(29,107,107,.05);border:1.5px solid rgba(29,107,107,.18);border-radius:11px;padding:.75rem .95rem;text-align:left}
 .pronun.show{display:block;animation:fadeIn .3s ease}
-.pronun-title{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.35rem}
-.pronun-word{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--teal)}
-.pronun-tip{font-size:.75rem;color:var(--text-soft);margin-top:.2rem}
-.pronun-partner{font-size:.75rem;color:var(--amber);font-weight:500;margin-top:.3rem}
-.feedback{display:none;margin-top:.9rem;padding:.8rem 1rem;border-radius:12px;font-size:.88rem;font-weight:500;text-align:center;animation:fadeIn .25s ease;line-height:1.5}
-.feedback.show{display:block}
+.pronun-title{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.28rem}
+.pronun-word{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--teal)}
+.pronun-tip{font-size:.7rem;color:var(--text-soft);margin-top:.18rem}
+.pronun-partner{font-size:.7rem;color:var(--amber);font-weight:500;margin-top:.22rem}
+.feedback{display:none;margin-top:.8rem;padding:.7rem .95rem;border-radius:11px;font-size:.84rem;font-weight:500;text-align:center;line-height:1.5}
+.feedback.show{display:block;animation:fadeIn .25s ease}
 .feedback.ok{background:#E8F5EC;color:var(--green)}
 .feedback.bad{background:#FCEAEA;color:var(--red)}
-.next-btn{margin-top:.9rem;background:var(--teal);color:#fff;border:none;border-radius:12px;padding:.7rem 1.9rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .18s;display:none}
+.next-btn{margin-top:.8rem;background:var(--teal);color:#fff;border:none;border-radius:11px;padding:.62rem 1.7rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:500;cursor:pointer;transition:all .18s;display:none}
 .next-btn.show{display:inline-block}
 .next-btn:hover{background:var(--teal-light);transform:translateY(-1px)}
-.trophy{font-size:3.5rem;margin-bottom:.7rem;animation:bounce .6s ease}
+/* End */
+.trophy{font-size:3.2rem;margin-bottom:.6rem;animation:bounce .6s ease}
 @keyframes bounce{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-.end-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;color:var(--teal);text-align:center;margin-bottom:.3rem}
-.end-sub{font-size:.9rem;color:var(--text-soft);text-align:center;margin-bottom:1.6rem}
-.final-scores{display:flex;gap:1.1rem;margin-bottom:1.6rem}
-.fsc{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.3rem 1.8rem;text-align:center;min-width:130px}
+.end-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--teal);text-align:center;margin-bottom:.28rem}
+.end-sub{font-size:.85rem;color:var(--text-soft);text-align:center;margin-bottom:1.4rem;line-height:1.5}
+.final-scores{display:flex;gap:.9rem;margin-bottom:1.4rem}
+.fsc{background:#fff;border:2px solid var(--border);border-radius:15px;padding:1.1rem 1.5rem;text-align:center;min-width:115px}
 .fsc.winner{border-color:var(--amber);box-shadow:0 4px 24px rgba(196,118,42,0.2);transform:scale(1.05)}
-.f-flag{font-size:1.7rem;margin-bottom:.3rem}
-.f-name{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.35rem}
-.f-score{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--teal)}
+.f-flag{font-size:1.6rem;margin-bottom:.28rem}
+.f-name{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.28rem}
+.f-score{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--teal)}
 .fsc.winner .f-score{color:var(--amber)}
-.f-label{font-size:.68rem;color:var(--text-soft)}
-.solo-final{background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.5rem 2.2rem;text-align:center;margin-bottom:1.6rem}
-.solo-final .f-score{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--teal)}
-.solo-final .f-total{font-size:.82rem;color:var(--text-soft)}
-.end-btns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
-.replay-btn{background:var(--amber);color:#fff;border:none;border-radius:12px;padding:.8rem 1.6rem;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s}
+.f-label{font-size:.62rem;color:var(--text-soft)}
+.solo-final{background:#fff;border:2px solid var(--border);border-radius:15px;padding:1.3rem 2rem;text-align:center;margin-bottom:1.4rem}
+.end-btns{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.replay-btn{background:var(--amber);color:#fff;border:none;border-radius:11px;padding:.75rem 1.5rem;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s}
 .replay-btn:hover{background:var(--amber-light);transform:translateY(-2px)}
-.menu-btn{background:#fff;color:var(--text);border:2px solid var(--border);border-radius:12px;padding:.8rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:500;cursor:pointer;transition:all .2s}
+.menu-btn{background:#fff;color:var(--text);border:2px solid var(--border);border-radius:11px;padding:.75rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;cursor:pointer;transition:all .2s}
 .menu-btn:hover{border-color:var(--teal);color:var(--teal)}
-.mark-end-btn{background:var(--green);color:#fff;border:none;border-radius:12px;padding:.8rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s}
-.mark-end-btn:hover{opacity:.88;transform:translateY(-2px)}
+/* Note box on end screen */
+.note-box{width:100%;max-width:460px;margin-top:1.1rem;background:#fff;border:2px solid var(--border);border-radius:15px;padding:1rem 1.2rem;text-align:left}
+.note-box-title{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.4rem}
+.note-box-desc{font-size:.72rem;color:var(--text-soft);margin-bottom:.55rem;line-height:1.5}
+.note-row{display:flex;gap:.45rem;align-items:stretch}
+.note-row input{flex:1;border:2px solid var(--border);border-radius:9px;padding:.5rem .75rem;font-family:'DM Sans',sans-serif;font-size:.86rem;outline:none;transition:border-color .2s;min-width:0}
+.note-row input:focus{border-color:var(--teal)}
+.note-send-btn{background:var(--teal);color:#fff;border:none;border-radius:9px;padding:.5rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .18s}
+.note-send-btn:hover{background:var(--teal-light)}
+.note-status{font-size:.75rem;margin-top:.4rem;min-height:1.2em;color:var(--green);font-weight:500}
+/* Grammar tab */
+.gram-header{width:100%;max-width:760px;margin-bottom:1.2rem;text-align:center}
+.gram-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--teal);margin-bottom:.25rem}
+.gram-sub{font-size:.82rem;color:var(--text-soft)}
+.lang-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.1rem}
+.lang-tab{background:#fff;border:2.5px solid var(--border);border-radius:100px;padding:.45rem 1.3rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.4rem}
+.lang-tab:hover{border-color:var(--teal)}
+.lang-tab.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.level-tabs{display:flex;gap:.4rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap}
+.level-tab{background:#fff;border:2px solid var(--border);border-radius:8px;padding:.35rem .9rem;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .18s;color:var(--text-soft)}
+.level-tab:hover{border-color:var(--teal);color:var(--text)}
+.level-tab.active{background:var(--amber);border-color:var(--amber);color:#fff}
+.gram-content{width:100%;max-width:760px}
+.gram-section{background:#fff;border:2px solid var(--border);border-radius:14px;margin-bottom:.7rem;overflow:hidden}
+.gram-section-head{padding:.9rem 1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.gram-section-head:hover{background:var(--cream)}
+.gram-section-title{font-weight:600;font-size:.9rem;color:var(--text)}
+.gram-section-de{font-size:.75rem;color:var(--text-soft);font-style:italic;margin-top:.1rem}
+.gram-section-arrow{font-size:.8rem;color:var(--text-soft);transition:transform .2s;flex-shrink:0}
+.gram-section.open .gram-section-arrow{transform:rotate(180deg)}
+.gram-body{display:none;padding:0 1.1rem 1rem;border-top:1.5px solid var(--border)}
+.gram-section.open .gram-body{display:block}
+.gram-rule{margin-top:.75rem}
+.gram-rule-title{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.3rem}
+.gram-rule-text{font-size:.82rem;color:var(--text);line-height:1.6}
+.gram-rule-text em{color:var(--text-soft);font-size:.78rem}
+.gram-example{background:var(--cream);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:.5rem .75rem;margin:.35rem 0;font-size:.82rem;line-height:1.5}
+.gram-example .de{color:var(--teal);font-weight:600}
+.gram-example .dk{color:var(--text-soft);font-size:.77rem}
+.gram-tip{background:var(--amber-pale);border-radius:8px;padding:.45rem .75rem;font-size:.76rem;color:var(--amber);line-height:1.5;margin-top:.4rem}
+.gram-tip::before{content:'💡 '}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 .card-enter{animation:cardIn .3s ease forwards}
 @keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -225,129 +278,112 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 <nav class="nav">
   <div class="nav-logo">DK<span>↔</span>DE</div>
   <div class="nav-links">
-    <button class="nav-btn active" id="nav-home" onclick="goHome()">🏠 Hjem</button>
+    <button class="nav-btn active" id="nav-home" onclick="goHome()">🏠 Hjem<br><span style="font-size:.65em;opacity:.7">Startseite</span></button>
     <button class="nav-btn" id="nav-cal" onclick="showScreen('screen-calendar');renderCal()">📅 Kalender</button>
-    <button class="nav-sync" id="sync-badge" onclick="showSyncInfo()">⚡ Synkroniserer</button>
+    <button class="nav-btn" id="nav-gram" onclick="showScreen('screen-grammar')">📚 Grammatik</button>
+    <button class="nav-sync" id="sync-badge" onclick="showSyncInfo()">⚡ Sync</button>
   </div>
 </nav>
-
 <div class="container">
 
-<!-- SCREEN: SETUP (couple code) -->
+<!-- SETUP -->
 <div class="screen active" id="screen-setup">
   <div class="setup-box">
     <div class="setup-icon">💑</div>
     <div class="setup-title">Jeres kode</div>
-    <div class="setup-desc">Vælg en fælles kode som I begge bruger — den forbinder jeres kalendere på tværs af enheder.</div>
-    <input class="setup-input" id="code-input" type="text" placeholder="f.eks. lisa-og-mads" maxlength="30" autocomplete="off">
-    <div class="setup-note">🔒 Koden er privat — kun I to kender den. Brug den samme kode på begge telefoner.</div>
-    <button class="setup-btn" onclick="saveCode()">Forbind 🚀</button>
+    <div class="setup-title-de">Euer gemeinsamer Code</div>
+    <div class="setup-desc">Skriv den samme kode på begge enheder for at synkronisere.<br><em style="font-size:.85em;opacity:.75">Schreibt denselben Code auf beiden Geräten.</em></div>
+    <input class="setup-input" id="code-input" type="text" placeholder="f.eks. lisa-og-raffi" maxlength="30" autocomplete="off">
+    <div class="setup-note">🔒 Koden er jeres private nøgle · Euer privater Schlüssel</div>
+    <div class="who-label">Hvem er DU på denne enhed? · Wer bist DU auf diesem Gerät?</div>
+    <div class="who-btns">
+      <button class="who-btn" id="who-lisa" onclick="selectWho('lisa')">
+        <span class="wf">🇩🇰</span>
+        <span class="wn">Lisa</span>
+        <span class="ws">Lærer tysk · Lernt Deutsch</span>
+      </button>
+      <button class="who-btn" id="who-bf" onclick="selectWho('bf')">
+        <span class="wf">🇩🇪</span>
+        <span class="wn">Kæresten</span>
+        <span class="ws">Lærer dansk · Lernt Dänisch</span>
+      </button>
+    </div>
+    <button class="setup-btn" onclick="saveCode()">Forbind · Verbinden 🚀</button>
   </div>
 </div>
 
-<!-- SCREEN: MODE SELECT -->
+<!-- MODE -->
 <div class="screen" id="screen-mode">
+  <div id="incoming-note-area"></div>
   <div class="mode-hero">
     <div class="mode-logo">DK<span>↔</span>DE</div>
-    <div class="mode-tagline">Sprogspil for to</div>
+    <div class="mode-tagline">Sprogspil for to · Sprachspiel für zwei</div>
   </div>
-  <p class="mode-question">Spiller I <strong>sammen</strong> eller <strong>hver for sig</strong> i dag?</p>
+  <p class="mode-question">Spiller I <strong>sammen</strong> eller <strong>alene</strong> i dag?<span class="de">Spielt ihr <strong>zusammen</strong> oder <strong>allein</strong> heute?</span></p>
   <div class="mode-cards">
     <div class="mode-card together-card" onclick="setMode('together')">
-      <span class="mode-card-icon">🤝</span>
-      <div class="mode-card-title">Sammen</div>
-      <div class="mode-card-sub">Én enhed, skiftes om</div>
-      <div class="mode-card-desc">Hjælp hinanden med udtale. Send telefonen videre mellem runderne.</div>
+      <span class="mc-icon">🤝</span>
+      <div class="mc-title">Sammen<span class="mc-de">Zusammen</span></div>
+      <div class="mc-sub">Én enhed · Ein Gerät</div>
+      <div class="mc-desc">Skiftes om, hjælp med udtale.<br><em style="opacity:.7">Abwechselnd, mit Aussprache.</em></div>
     </div>
     <div class="mode-card apart-card" onclick="setMode('apart')">
-      <span class="mode-card-icon">📱</span>
-      <div class="mode-card-title">Alene</div>
-      <div class="mode-card-sub">Solo, dit niveau</div>
-      <div class="mode-card-desc">Spil på din egen enhed tilpasset dit niveau. Kalenderen synkroniserer automatisk.</div>
+      <span class="mc-icon">📱</span>
+      <div class="mc-title">Alene<span class="mc-de">Allein</span></div>
+      <div class="mc-sub">Solo · Solo</div>
+      <div class="mc-desc">Spil på dit eget niveau.<br><em style="opacity:.7">Auf deinem eigenen Niveau.</em></div>
     </div>
   </div>
 </div>
 
-<!-- SCREEN: HOME (game setup) -->
+<!-- HOME -->
 <div class="screen" id="screen-home">
-  <div style="text-align:center;margin-bottom:1.5rem">
+  <div style="text-align:center;margin-bottom:1.3rem">
     <div class="logo" id="home-logo">DK<span>↔</span>DE</div>
-    <span class="logo-badge" id="mode-badge">Vælg tilstand</span>
-    <div class="tagline" id="home-tagline">Vælg ordforråd og start spillet</div>
+    <span class="logo-badge" id="mode-badge">—</span>
+    <div class="tagline" id="home-tagline"></div>
   </div>
-  <div id="solo-who" style="display:none;width:100%;max-width:560px;margin-bottom:1.2rem">
-    <div class="solo-label">Hvem spiller?</div>
+  <div id="together-names" style="display:none;width:100%;max-width:540px;margin-bottom:1.1rem">
+    <div class="section-label">Spillernavne · Spielernamen</div>
+    <div class="player-setup">
+      <div class="player-card"><div class="player-flag">🇩🇰</div><div class="player-label">Lærer Tysk<br>Lernt Deutsch</div><input id="p1-name" placeholder="Lisa" value="Lisa"></div>
+      <div class="player-card"><div class="player-flag">🇩🇪</div><div class="player-label">Lærer Dansk<br>Lernt Dänisch</div><input id="p2-name" placeholder="Mads" value="Mads"></div>
+    </div>
+  </div>
+  <div id="solo-who" style="display:none;width:100%;max-width:540px;margin-bottom:1.1rem">
+    <div class="solo-label">Hvem spiller? · Wer spielt?</div>
     <div class="solo-cards">
       <div class="solo-card selected" id="solo-lisa" onclick="selectSoloPlayer('lisa')">
         <div class="sf">🇩🇰</div>
-        <input id="solo-name-lisa" placeholder="Lisa" style="font-size:.88rem;font-weight:600;width:100%;border:none;border-bottom:2px solid #C8BFA8;text-align:center;background:transparent;outline:none;padding:.2rem 0">
-        <div class="sn" style="margin-top:.3rem">Lærer tysk · A2</div>
+        <input id="solo-name-lisa" placeholder="Lisa" style="font-size:.88rem;font-weight:600;width:100%;border:none;border-bottom:2px solid #C8BFA8;text-align:center;background:transparent;outline:none;padding:.18rem 0">
+        <div class="sn">Dänisch→Deutsch · A2</div>
       </div>
       <div class="solo-card" id="solo-bf" onclick="selectSoloPlayer('bf')">
         <div class="sf">🇩🇪</div>
-        <input id="solo-name-bf" placeholder="Kæresten" style="font-size:.88rem;font-weight:600;width:100%;border:none;border-bottom:2px solid #C8BFA8;text-align:center;background:transparent;outline:none;padding:.2rem 0">
-        <div class="sn" style="margin-top:.3rem">Lærer dansk · A1</div>
-      </div>
-    </div>
-  </div>
-  <div id="together-names" style="display:none;width:100%;max-width:560px;margin-bottom:1.2rem">
-    <div class="section-label">Spillernavne</div>
-    <div class="player-setup">
-      <div class="player-card">
-        <div class="player-flag">🇩🇰</div>
-        <div class="player-label">Lærer Tysk</div>
-        <input id="p1-name" placeholder="Lisa" value="Lisa">
-      </div>
-      <div class="player-card">
-        <div class="player-flag">🇩🇪</div>
-        <div class="player-label">Lærer Dansk</div>
-        <input id="p2-name" placeholder="Mads" value="Mads">
+        <input id="solo-name-bf" placeholder="Kæresten" style="font-size:.88rem;font-weight:600;width:100%;border:none;border-bottom:2px solid #C8BFA8;text-align:center;background:transparent;outline:none;padding:.18rem 0">
+        <div class="sn">Deutsch→Dänisch · A1</div>
       </div>
     </div>
   </div>
   <div class="game-picker">
-    <div class="section-label">Ordforråd</div>
+    <div class="section-label">Vælg opgavetyper · Aufgaben wählen</div>
     <div class="game-grid">
-      <div class="game-card selected" id="gc-mixed" onclick="toggleCat('mixed',this)">
-        <span class="gc-icon">🌟</span><span class="gc-name">Mix</span><span class="gc-sub">Alt blandet</span>
-      </div>
-      <div class="game-card" id="gc-food" onclick="toggleCat('food',this)">
-        <span class="gc-icon">🍽️</span><span class="gc-name">Mad</span><span class="gc-sub">Køkken & marked</span>
-      </div>
-      <div class="game-card" id="gc-everyday" onclick="toggleCat('everyday',this)">
-        <span class="gc-icon">🏡</span><span class="gc-name">Hverdag</span><span class="gc-sub">Hjem & rutiner</span>
-      </div>
-      <div class="game-card" id="gc-nature" onclick="toggleCat('nature',this)">
-        <span class="gc-icon">🌿</span><span class="gc-name">Natur</span><span class="gc-sub">Vejr & dyr</span>
-      </div>
-      <div class="game-card" id="gc-travel" onclick="toggleCat('travel',this)">
-        <span class="gc-icon">✈️</span><span class="gc-name">Rejse</span><span class="gc-sub">Transport & sted</span>
-      </div>
-      <div class="game-card" id="gc-body" onclick="toggleCat('body',this)">
-        <span class="gc-icon">💪</span><span class="gc-name">Krop</span><span class="gc-sub">Sundhed & krop</span>
-      </div>
-      <div class="game-card" id="gc-emotions" onclick="toggleCat('emotions',this)">
-        <span class="gc-icon">❤️</span><span class="gc-name">Følelser</span><span class="gc-sub">Kærlighed & relation</span>
-      </div>
-      <div class="game-card" id="gc-numbers" onclick="toggleCat('numbers',this)">
-        <span class="gc-icon">🔢</span><span class="gc-name">Tal & tid</span><span class="gc-sub">Tal, ugedage & ur</span>
-      </div>
-      <div class="game-card" id="gc-shopping" onclick="toggleCat('shopping',this)">
-        <span class="gc-icon">🛍️</span><span class="gc-name">Shopping</span><span class="gc-sub">Farver & mode</span>
-      </div>
-      <div class="divider"><span>Sætningskort</span></div>
-      <div class="game-card sc" id="gc-sentences" onclick="toggleCat('sentences',this)">
-        <span class="gc-icon">💬</span><span class="gc-name">Sætninger</span><span class="gc-sub">Matchpar</span>
-      </div>
-      <div class="game-card sc" id="gc-fillin" onclick="toggleCat('fillin',this)">
-        <span class="gc-icon">✏️</span><span class="gc-name">Udfyld</span><span class="gc-sub">Manglende ord</span>
-      </div>
-      <div class="game-card sc" id="gc-wordorder" onclick="toggleCat('wordorder',this)">
-        <span class="gc-icon">🔀</span><span class="gc-name">Ordstilling</span><span class="gc-sub">Sæt i orden</span>
-      </div>
+      <div class="game-card selected" id="gc-mixed" onclick="toggleCat('mixed',this)"><span class="gc-icon">🌟</span><span class="gc-name">Mix alt<span class="gc-de">Alles mischen</span></span><span class="gc-sub">Gloser+sætninger</span></div>
+      <div class="game-card" id="gc-food" onclick="toggleCat('food',this)"><span class="gc-icon">🍽️</span><span class="gc-name">Mad<span class="gc-de">Essen</span></span><span class="gc-sub">Køkken & marked</span></div>
+      <div class="game-card" id="gc-everyday" onclick="toggleCat('everyday',this)"><span class="gc-icon">🏡</span><span class="gc-name">Hverdag<span class="gc-de">Alltag</span></span><span class="gc-sub">Hjem & rutiner</span></div>
+      <div class="game-card" id="gc-emotions" onclick="toggleCat('emotions',this)"><span class="gc-icon">❤️</span><span class="gc-name">Følelser<span class="gc-de">Gefühle</span></span><span class="gc-sub">Kærlighed & relation</span></div>
+      <div class="game-card" id="gc-numbers" onclick="toggleCat('numbers',this)"><span class="gc-icon">🔢</span><span class="gc-name">Tal & tid<span class="gc-de">Zahlen & Zeit</span></span><span class="gc-sub">Tal, ugedage & ur</span></div>
+      <div class="game-card" id="gc-shopping" onclick="toggleCat('shopping',this)"><span class="gc-icon">🛍️</span><span class="gc-name">Shopping<span class="gc-de">Einkaufen</span></span><span class="gc-sub">Farver & mode</span></div>
+      <div class="game-card" id="gc-travel" onclick="toggleCat('travel',this)"><span class="gc-icon">✈️</span><span class="gc-name">Rejse<span class="gc-de">Reisen</span></span><span class="gc-sub">Transport & sted</span></div>
+      <div class="game-card" id="gc-nature" onclick="toggleCat('nature',this)"><span class="gc-icon">🌿</span><span class="gc-name">Natur<span class="gc-de">Natur</span></span><span class="gc-sub">Vejr & dyr</span></div>
+      <div class="game-card" id="gc-body" onclick="toggleCat('body',this)"><span class="gc-icon">💪</span><span class="gc-name">Krop<span class="gc-de">Körper</span></span><span class="gc-sub">Sundhed & krop</span></div>
+      <div class="divider"><span>Sætningsopgaver · Satzaufgaben</span></div>
+      <div class="game-card sc" id="gc-sentences" onclick="toggleCat('sentences',this)"><span class="gc-icon">💬</span><span class="gc-name">Sætninger<span class="gc-de">Sätze</span></span><span class="gc-sub">Vælg oversættelse</span></div>
+      <div class="game-card sc" id="gc-fillin" onclick="toggleCat('fillin',this)"><span class="gc-icon">✏️</span><span class="gc-name">Udfyld<span class="gc-de">Lückentext</span></span><span class="gc-sub">Manglende ord</span></div>
+      <div class="game-card sc" id="gc-wordorder" onclick="toggleCat('wordorder',this)"><span class="gc-icon">🔀</span><span class="gc-name">Ordstilling<span class="gc-de">Wortstellung</span></span><span class="gc-sub">Sæt i orden</span></div>
     </div>
     <div class="rounds-row">
-      <span class="section-label" style="margin:0">Runder:</span>
+      <span class="section-label" style="margin:0">Runder · Runden:</span>
       <div class="rounds-btns">
         <button class="rounds-btn selected" onclick="setRounds(5,this)">5</button>
         <button class="rounds-btn" onclick="setRounds(10,this)">10</button>
@@ -356,48 +392,61 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
       </div>
     </div>
   </div>
-  <button class="play-btn" onclick="startGame()">Start spillet →</button>
+  <button class="play-btn" onclick="startGame()">Start spillet · Spiel starten →</button>
 </div>
 
-<!-- SCREEN: PASS THE PHONE -->
+<!-- PASS -->
 <div class="screen" id="screen-pass">
   <div class="pass-inner">
     <div class="pass-flag" id="pass-flag">🇩🇰</div>
-    <div class="pass-title">Send telefonen til <span id="pass-name">Lisa</span></div>
-    <div class="pass-sub" id="pass-sub">Det er din tur nu!</div>
+    <div class="pass-title">Send telefonen til <span id="pass-name">Lisa</span><span class="pass-de">Gib das Handy an <span id="pass-name-de">Lisa</span></span></div>
+    <div class="pass-sub" id="pass-sub"></div>
     <div class="pass-tip" id="pass-tip"></div>
-    <button class="pass-btn" onclick="startTurn()">Jeg er klar! ▶</button>
+    <button class="pass-btn" onclick="startTurn()">Jeg er klar! · Ich bin bereit! ▶</button>
   </div>
 </div>
 
-<!-- SCREEN: CALENDAR -->
+<!-- CALENDAR -->
 <div class="screen" id="screen-calendar">
   <div class="cal-header">
     <button class="cal-nav-btn" onclick="moveMonth(-1)">◀</button>
-    <div class="cal-title" id="cal-month-label">Juni 2026</div>
+    <div class="cal-title" id="cal-month-label"></div>
     <button class="cal-nav-btn" onclick="moveMonth(1)">▶</button>
   </div>
-  <div class="cal-streak" id="cal-streak-bar">
-    <span class="streak-fire">🔥</span>
-    <span class="streak-num" id="streak-num">0</span>
-    <div class="streak-label"><strong>dages streak!</strong><br>Hold gang i læringsrutinen</div>
-  </div>
-  <div style="width:100%;max-width:720px">
+  <div class="cal-streak"><span class="streak-fire">🔥</span><span class="streak-num" id="streak-num">0</span><div class="streak-label"><strong>dages streak · Tage in Folge</strong><br>Hold gang i rutinen · Haltet die Routine</div></div>
+  <div style="width:100%;max-width:700px">
     <div class="cal-weekdays" id="cal-weekdays"></div>
     <div class="cal-days" id="cal-days"></div>
   </div>
   <div class="cal-stats">
-    <div class="cal-stat"><div class="cs-num" id="cs-total">0</div><div class="cs-label">Dage i alt</div></div>
-    <div class="cal-stat"><div class="cs-num" id="cs-streak">0</div><div class="cs-label">Nuværende streak</div></div>
-    <div class="cal-stat"><div class="cs-num" id="cs-month">0</div><div class="cs-label">Denne måned</div></div>
+    <div class="cal-stat"><div class="cs-num" id="cs-total">0</div><div class="cs-label">Dage i alt<br>Tage gesamt</div></div>
+    <div class="cal-stat"><div class="cs-num" id="cs-streak">0</div><div class="cs-label">Streak</div></div>
+    <div class="cal-stat"><div class="cs-num" id="cs-month">0</div><div class="cs-label">Denne måned<br>Diesen Monat</div></div>
   </div>
-  <div class="cal-legend">
-    <span>🟢 Spillet</span><span>🤝 Sammen</span><span>📱 Alene</span>
-  </div>
-  <button class="mark-btn" id="mark-today-btn" onclick="markToday(G.playMode==='together'?'T':'A')">✅ Marker i dag</button>
+  <div style="display:flex;gap:.9rem;margin-top:.65rem;font-size:.68rem;color:var(--text-soft)">🤝 Sammen &nbsp;📱 Alene · Allein</div>
+  <button class="mark-btn" id="mark-today-btn" onclick="markToday(G.playMode==='together'?'T':'A')">✅ Marker i dag · Heute markieren</button>
 </div>
 
-<!-- SCREEN: GAME -->
+<!-- GRAMMAR -->
+<div class="screen" id="screen-grammar">
+  <div class="gram-header">
+    <div class="gram-title">📚 Grammatik</div>
+    <div class="gram-sub">Referenceblad for begge sprog · Referenzblatt für beide Sprachen</div>
+  </div>
+  <div class="lang-tabs">
+    <button class="lang-tab active" id="gt-de" onclick="setGramLang('de')">🇩🇪 Tysk <em style="font-size:.8em;opacity:.75">(for Lisa)</em></button>
+    <button class="lang-tab" id="gt-dk" onclick="setGramLang('dk')">🇩🇰 Dansk <em style="font-size:.8em;opacity:.75">(for kæresten)</em></button>
+  </div>
+  <div class="level-tabs">
+    <button class="level-tab active" id="gl-a1" onclick="setGramLevel('a1')">A1</button>
+    <button class="level-tab" id="gl-a2" onclick="setGramLevel('a2')">A2</button>
+    <button class="level-tab" id="gl-b1" onclick="setGramLevel('b1')">B1</button>
+    <button class="level-tab" id="gl-b2" onclick="setGramLevel('b2')">B2</button>
+  </div>
+  <div class="gram-content" id="gram-content"></div>
+</div>
+
+<!-- GAME -->
 <div class="screen" id="screen-game">
   <div id="scoreboard-together" style="display:none">
     <div class="scoreboard">
@@ -409,424 +458,439 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   <div id="scoreboard-solo" style="display:none">
     <div class="solo-scoreboard">
       <div class="solo-score-card">
-        <div><div class="s-flag" id="solo-flag-sb">🇩🇰</div></div>
+        <div class="s-flag" id="solo-flag-sb">🇩🇰</div>
         <div><div class="s-name" id="solo-name-sb">Lisa</div><div class="s-score" id="solo-score-sb">0</div></div>
       </div>
     </div>
   </div>
-  <div class="prog-info" id="prog-info">Spørgsmål 1 af 10</div>
+  <div class="prog-info" id="prog-info"></div>
   <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
   <div class="q-card card-enter" id="q-card"></div>
 </div>
 
-<!-- SCREEN: END -->
+<!-- END -->
 <div class="screen" id="screen-end">
   <div class="trophy" id="end-trophy">🏆</div>
-  <div class="end-title" id="end-title">Godt klaret!</div>
-  <div class="end-sub" id="end-sub">Spillet er slut</div>
+  <div class="end-title" id="end-title"></div>
+  <div class="end-sub" id="end-sub"></div>
   <div id="final-together" style="display:none" class="final-scores">
-    <div class="fsc" id="fsc1">
-      <div class="f-flag" id="fsc1-flag">🇩🇰</div>
-      <div class="f-name" id="fsc1-name">Lisa</div>
-      <div class="f-score" id="fsc1-score">0</div>
-      <div class="f-label">point</div>
-    </div>
-    <div class="fsc" id="fsc2">
-      <div class="f-flag" id="fsc2-flag">🇩🇪</div>
-      <div class="f-name" id="fsc2-name">Mads</div>
-      <div class="f-score" id="fsc2-score">0</div>
-      <div class="f-label">point</div>
-    </div>
+    <div class="fsc" id="fsc1"><div class="f-flag" id="fsc1-flag">🇩🇰</div><div class="f-name" id="fsc1-name">Lisa</div><div class="f-score" id="fsc1-score">0</div><div class="f-label">point</div></div>
+    <div class="fsc" id="fsc2"><div class="f-flag" id="fsc2-flag">🇩🇪</div><div class="f-name" id="fsc2-name">Mads</div><div class="f-score" id="fsc2-score">0</div><div class="f-label">point</div></div>
   </div>
   <div id="final-solo" style="display:none" class="solo-final">
     <div class="f-flag" id="fss-flag">🇩🇰</div>
     <div class="f-name" id="fss-name">Lisa</div>
     <div class="f-score" id="fss-score">0</div>
-    <div class="f-total" id="fss-total">af 10 point</div>
+    <div class="f-total" id="fss-total"></div>
   </div>
   <div class="end-btns">
-    <button class="replay-btn" onclick="replayGame()">🔄 Spil igen</button>
-    <button class="menu-btn" onclick="goHome()">🏠 Hjem</button>
+    <button class="replay-btn" onclick="replayGame()">🔄 Spil igen · Nochmal</button>
+    <button class="menu-btn" onclick="goHome()">🏠 Hjem · Startseite</button>
   </div>
-  <p style="font-size:.72rem;color:var(--text-soft);margin-top:1rem" id="cal-auto-note"></p>
+  <p style="font-size:.68rem;color:var(--text-soft);margin-top:.9rem" id="cal-auto-note"></p>
+  <div class="note-box" id="note-send-box" style="display:none">
+    <div class="note-box-title">✉️ Skriv en besked · Nachricht hinterlassen</div>
+    <div class="note-box-desc">Den anden ser den næste gang de åbner appen.<br><em>Der andere sieht sie beim nächsten Öffnen der App.</em></div>
+    <div class="note-row">
+      <input type="text" id="note-input" placeholder="f.eks. Godt klaret i dag! ❤️" onkeydown="if(event.key==='Enter')sendNote()">
+      <button class="note-send-btn" id="note-send-btn" onclick="sendNote()">Send 📨</button>
+    </div>
+    <div class="note-status" id="note-status"></div>
+  </div>
 </div>
 
 </div><!-- /container -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
-// ─── Firebase config ───
-const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyD9bpLGSXK8wQqbmhgUsBa5rB6OjamlB5Q",
-  authDomain: "dansk-tysk-quiz-1ed4d.firebaseapp.com",
-  databaseURL: "https://dansk-tysk-quiz-1ed4d-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "dansk-tysk-quiz-1ed4d",
-  storageBucket: "dansk-tysk-quiz-1ed4d.firebasestorage.app",
-  messagingSenderId: "860970931502",
-  appId: "1:860970931502:web:ad8e1beaae0379d421d6bf"
-};
-const FB_READY = true;
-let fbDB = null;
+// ── Firebase ──────────────────────────────────────────────
+const FIREBASE_CONFIG={apiKey:"AIzaSyD9bpLGSXK8wQqbmhgUsBa5rB6OjamlB5Q",authDomain:"dansk-tysk-quiz-1ed4d.firebaseapp.com",databaseURL:"https://dansk-tysk-quiz-1ed4d-default-rtdb.europe-west1.firebasedatabase.app",projectId:"dansk-tysk-quiz-1ed4d",storageBucket:"dansk-tysk-quiz-1ed4d.firebasestorage.app",messagingSenderId:"860970931502",appId:"1:860970931502:web:ad8e1beaae0379d421d6bf"};
+let fbDB=null;
+function setSyncBadge(s){const b=document.getElementById('sync-badge');if(!b)return;b.className='nav-sync '+(s||'');b.textContent={ok:'🟢 Synk',err:'🔴 Offline',local:'🟡 Lokal','':'⚡ Sync'}[s]||'⚡ Sync';}
+function showSyncInfo(){alert(fbDB?'✅ Firebase tilsluttet\nKode: '+getCoupleCode():'⚠️ Offline — data gemmes lokalt');}
+function initFirebase(){try{firebase.initializeApp(FIREBASE_CONFIG);fbDB=firebase.database();setSyncBadge('ok');}catch(e){console.warn(e);setSyncBadge('err');}}
 
-function setSyncBadge(state){
-  const b=document.getElementById('sync-badge');
-  if(!b) return;
-  b.className='nav-sync '+(state||'');
-  const labels={ok:'🟢 Synkroniseret',err:'🔴 Offline',local:'🟡 Lokal','':{textContent:'⚡ Initialiserer'}};
-  b.textContent=labels[state]||'⚡ Synkroniserer';
-}
-function showSyncInfo(){
-  const code=getCoupleCode();
-  alert(fbDB?'✅ Firebase tilsluttet\nKode: '+code+'\nKalender synkroniseres i realtid.':'⚠️ Offline tilstand\nKalender gemmes lokalt på denne enhed.');
-}
-function initFirebase(){
-  if(!FB_READY) return;
-  try{firebase.initializeApp(FIREBASE_CONFIG);fbDB=firebase.database();setSyncBadge('ok');}
-  catch(e){console.warn('Firebase init failed',e);setSyncBadge('err');}
-}
-
-// ─── Couple code / local storage ───
+// ── Identity & couple code ────────────────────────────────
 function getCoupleCode(){return localStorage.getItem('coupleCode')||'';}
+function getMyPlayer(){return localStorage.getItem('myPlayer')||'lisa';}
+let _selectedWho=localStorage.getItem('myPlayer')||'';
+function selectWho(p){
+  _selectedWho=p;
+  document.getElementById('who-lisa').className='who-btn'+(p==='lisa'?' selected':'');
+  document.getElementById('who-bf').className='who-btn'+(p==='bf'?' selected':'');
+}
 function saveCode(){
   const v=document.getElementById('code-input').value.trim().toLowerCase().replace(/\s+/g,'-');
   if(v.length<2){alert('Koden skal have mindst 2 tegn!');return;}
+  if(!_selectedWho){alert('Vælg hvem du er på denne enhed!\nWähle, wer du auf diesem Gerät bist!');return;}
   localStorage.setItem('coupleCode',v);
-  loadAndListenCalendar();
-  setSyncBadge(fbDB?'ok':'local');
+  localStorage.setItem('myPlayer',_selectedWho);
+  initAll();
   showScreen('screen-mode');
 }
+function initAll(){
+  loadAndListenCalendar();
+  loadAndListenNote();
+  setSyncBadge(fbDB?'ok':'local');
+}
 
-// ─── Calendar data ───
-let cal={};
-let calViewYear=new Date().getFullYear(), calViewMonth=new Date().getMonth();
-
+// ── Calendar ──────────────────────────────────────────────
+let cal={},calViewYear=new Date().getFullYear(),calViewMonth=new Date().getMonth();
 function loadAndListenCalendar(){
-  const raw=localStorage.getItem('cal');
-  if(raw){try{cal=JSON.parse(raw);}catch(e){cal={};}}
+  try{const r=localStorage.getItem('cal');if(r)cal=JSON.parse(r);}catch(e){cal={};}
   const code=getCoupleCode();
-  if(!fbDB||!code) return;
-  fbDB.ref('couples/'+code+'/calendar').on('value',snap=>{
-    const data=snap.val();
-    if(data){cal=data;localStorage.setItem('cal',JSON.stringify(cal));}
-    renderCal();
-  });
+  if(!fbDB||!code)return;
+  fbDB.ref('couples/'+code+'/calendar').on('value',snap=>{const d=snap.val();if(d){cal=d;localStorage.setItem('cal',JSON.stringify(d));}renderCal();});
 }
 function saveCal(){
   localStorage.setItem('cal',JSON.stringify(cal));
   const code=getCoupleCode();
-  if(fbDB&&code){
-    fbDB.ref('couples/'+code+'/calendar').set(cal).catch(e=>console.warn('Firebase write failed',e));
-  }
+  if(fbDB&&code)fbDB.ref('couples/'+code+'/calendar').set(cal).catch(console.warn);
 }
-function todayKey(){
-  const d=new Date();
-  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-}
-function markToday(mode){
-  const k=todayKey();
-  cal[k]=mode||'A';
-  saveCal();
-  renderCal();
-  const btn=document.getElementById('mark-today-btn');
-  if(btn){btn.textContent='✅ I dag markeret!';btn.classList.add('done-state');}
-}
-
-// ─── Calendar render ───
+function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function markToday(mode){const k=todayKey();cal[k]=mode||'A';saveCal();renderCal();const b=document.getElementById('mark-today-btn');if(b){b.textContent='✅ Markeret! · Markiert!';b.classList.add('done-state');}}
 function renderCal(){
-  const wd=document.getElementById('cal-weekdays');
-  const dd=document.getElementById('cal-days');
-  if(!wd||!dd) return;
-  const days=['Man','Tir','Ons','Tor','Fre','Lør','Søn'];
-  wd.innerHTML=days.map(d=>`<div class="cal-weekday">${d}</div>`).join('');
+  const wd=document.getElementById('cal-weekdays'),dd=document.getElementById('cal-days');if(!wd||!dd)return;
+  wd.innerHTML=['Man','Tir','Ons','Tor','Fre','Lør','Søn'].map(d=>`<div class="cal-weekday">${d}</div>`).join('');
   const y=calViewYear,m=calViewMonth;
   document.getElementById('cal-month-label').textContent=new Date(y,m,1).toLocaleString('da-DK',{month:'long',year:'numeric'}).replace(/^\w/,c=>c.toUpperCase());
-  const first=new Date(y,m,1);
-  let startDow=first.getDay();
-  startDow=(startDow+6)%7; // Mon=0
-  const daysInMonth=new Date(y,m+1,0).getDate();
-  const today=new Date(); const todayStr=todayKey();
-  let html='';
-  for(let i=0;i<startDow;i++) html+='<div class="cal-day empty"></div>';
-  for(let d=1;d<=daysInMonth;d++){
+  let sd=(new Date(y,m,1).getDay()+6)%7,dm=new Date(y,m+1,0).getDate(),today=new Date(),html='';
+  for(let i=0;i<sd;i++)html+='<div class="cal-day empty"></div>';
+  for(let d=1;d<=dm;d++){
     const k=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-    const isToday=(new Date(y,m,d).toDateString()===today.toDateString());
-    const isFuture=new Date(y,m,d)>today;
-    const done=cal[k];
-    let cls='cal-day';
-    if(!done&&isFuture) cls+=' future';
-    if(done) cls+=' done';
-    if(isToday) cls+=' today';
-    const modeIcon=done==='T'?'🤝':done==='A'?'📱':'';
-    html+=`<div class="${cls}" onclick="calDayClick('${k}')" title="${k}">
-      <span class="cal-num">${d}</span>${modeIcon?`<span class="cal-mode">${modeIcon}</span>`:''}
-    </div>`;
+    const isT=new Date(y,m,d).toDateString()===today.toDateString(),isF=new Date(y,m,d)>today,done=cal[k];
+    html+=`<div class="cal-day${done?' done':''}${isF&&!done?' future':''}${isT?' today':''}" onclick="calDayClick('${k}')"><span class="cal-num">${d}</span>${done?`<span class="cal-mode">${done==='T'?'🤝':'📱'}</span>`:''}</div>`;
   }
-  dd.innerHTML=html;
-  updateCalStats();
+  dd.innerHTML=html;updateCalStats();
 }
-function calDayClick(k){
-  const d=new Date(k);
-  if(d>new Date()) return;
-  if(cal[k]){delete cal[k];}else{cal[k]='A';}
-  saveCal();renderCal();
-}
-function moveMonth(dir){
-  calViewMonth+=dir;
-  if(calViewMonth>11){calViewMonth=0;calViewYear++;}
-  if(calViewMonth<0){calViewMonth=11;calViewYear--;}
-  renderCal();
-}
+function calDayClick(k){if(new Date(k)>new Date())return;cal[k]?delete cal[k]:cal[k]='A';saveCal();renderCal();}
+function moveMonth(d){calViewMonth+=d;if(calViewMonth>11){calViewMonth=0;calViewYear++;}if(calViewMonth<0){calViewMonth=11;calViewYear--;}renderCal();}
 function updateCalStats(){
   const keys=Object.keys(cal);
   document.getElementById('cs-total').textContent=keys.length;
-  // streak
   let streak=0,d=new Date();
-  while(true){
-    const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-    if(cal[k]){streak++;d.setDate(d.getDate()-1);}else break;
-  }
+  while(true){const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');if(cal[k]){streak++;d.setDate(d.getDate()-1);}else break;}
   document.getElementById('cs-streak').textContent=streak;
   document.getElementById('streak-num').textContent=streak;
-  // this month
-  const now=new Date();
-  const monthKeys=keys.filter(k=>k.startsWith(now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')));
-  document.getElementById('cs-month').textContent=monthKeys.length;
+  const now=new Date(),pre=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  document.getElementById('cs-month').textContent=keys.filter(k=>k.startsWith(pre)).length;
 }
 
-// ─── Vocabulary ───
+// ── Note system (targeted) ────────────────────────────────
+function loadAndListenNote(){
+  const code=getCoupleCode();if(!fbDB||!code)return;
+  const me=getMyPlayer();
+  fbDB.ref('couples/'+code+'/note').on('value',snap=>{
+    const n=snap.val();
+    const area=document.getElementById('incoming-note-area');if(!area)return;
+    // Only show if note was sent by the OTHER player
+    if(n&&n.text&&n.sentBy&&n.sentBy!==me){
+      const ts=n.ts?new Date(n.ts).toLocaleString('da-DK',{weekday:'short',hour:'2-digit',minute:'2-digit'}):'';
+      area.innerHTML=`<div class="note-banner"><div class="note-from">✉️ Fra ${n.from||'Den anden'} ${ts?'· '+ts:''}</div><div class="note-text">"${n.text}"</div><button class="note-dismiss" onclick="clearNote()">✓ Læst · Gelesen &amp; löschen</button></div>`;
+    }else{area.innerHTML='';}
+  });
+}
+function clearNote(){
+  const code=getCoupleCode();
+  if(fbDB&&code)fbDB.ref('couples/'+code+'/note').remove();
+  const area=document.getElementById('incoming-note-area');if(area)area.innerHTML='';
+}
+function sendNote(){
+  const inp=document.getElementById('note-input');
+  const status=document.getElementById('note-status');
+  if(!inp)return;
+  const text=inp.value.trim();
+  if(!text){inp.focus();if(status)status.textContent='Skriv en besked først · Erst eine Nachricht schreiben';return;}
+  const code=getCoupleCode();
+  const me=getMyPlayer();
+  const fromName=me==='lisa'?(localStorage.getItem('soloNameLisa')||'Lisa'):(localStorage.getItem('soloNameBf')||'Kæresten');
+  const note={text,from:fromName,sentBy:me,ts:Date.now()};
+  if(status)status.textContent='Sender... · Sendet...';
+  const btn=document.getElementById('note-send-btn');if(btn)btn.disabled=true;
+  if(fbDB&&code){
+    fbDB.ref('couples/'+code+'/note').set(note)
+      .then(()=>{
+        inp.value='';
+        if(status)status.textContent='✅ Sendt! Den anden ser det næste gang de åbner appen. · Gesendet!';
+        if(btn){btn.disabled=false;btn.textContent='Send 📨';}
+      })
+      .catch(e=>{if(status)status.textContent='❌ Fejl: '+e.message;if(btn)btn.disabled=false;});
+  }else{
+    localStorage.setItem('pendingNote',JSON.stringify(note));
+    inp.value='';
+    if(status)status.textContent='💾 Gemt lokalt (ingen Firebase forbindelse)';
+    if(btn)btn.disabled=false;
+  }
+}
+
+// ── Vocab ─────────────────────────────────────────────────
 const V={
-  food:[
-    {dk:'brød',de:'das Brot',pron:'bROHt',tip:'Udtales omtrent som "brot"'},
-    {dk:'mælk',de:'die Milch',pron:'MILkh',tip:'"ch" som en blød lyd bagest i munden'},
-    {dk:'æg',de:'das Ei',pron:'EYE',tip:'Udtales ligesom det engelske "eye"'},
-    {dk:'ost',de:'der Käse',pron:'KAY-zeh',tip:'"ä" er en åben e-lyd'},
-    {dk:'kartoffel',de:'die Kartoffel',pron:'kar-TOF-el',tip:'Næsten det samme som på dansk'},
-    {dk:'smør',de:'die Butter',pron:'BOO-ter',tip:'"u" er kort og rund'},
-    {dk:'kylling',de:'das Huhn',pron:'HOON',tip:'"uh" som en dyb u-lyd'},
-    {dk:'fisk',de:'der Fisch',pron:'FISH',tip:'Som det engelske "fish"'},
-    {dk:'tomat',de:'die Tomate',pron:'toh-MAH-teh',tip:'Trykket er på anden stavelse'},
-    {dk:'løg',de:'die Zwiebel',pron:'TSVEE-bel',tip:'"zw" udtales "tsv"'},
-    {dk:'hvidløg',de:'der Knoblauch',pron:'KNOB-lowkh',tip:'"au" som "ow" i engelsk "cow"'},
-    {dk:'sukker',de:'der Zucker',pron:'TSOO-ker',tip:'"Z" udtales "ts" på tysk'},
-    {dk:'salt',de:'das Salz',pron:'ZALTS',tip:'Sluttes med "ts"-lyd'},
-    {dk:'kaffe',de:'der Kaffee',pron:'KAF-feh',tip:'To f\'er, kort a'},
-    {dk:'te',de:'der Tee',pron:'TEH',tip:'Langt e, dobbelt e'},
-    {dk:'vand',de:'das Wasser',pron:'VAS-er',tip:'"W" udtales "V" på tysk'},
-    {dk:'juice',de:'der Saft',pron:'ZAFT',tip:'"S" udtales "Z" foran vokal'},
-    {dk:'kage',de:'der Kuchen',pron:'KOO-khen',tip:'"ch" er en blød lyd som i "ich"'},
-  ],
-  everyday:[
-    {dk:'seng',de:'das Bett',pron:'BET',tip:'Dobbelt t, kort e'},
-    {dk:'stol',de:'der Stuhl',pron:'SHTOOL',tip:'"St" udtales "Sht" på tysk'},
-    {dk:'bord',de:'der Tisch',pron:'TISH',tip:'"Tisch" = spisebord/skrivebord'},
-    {dk:'vindue',de:'das Fenster',pron:'FEN-ster',tip:'Tryk på første stavelse'},
-    {dk:'dør',de:'die Tür',pron:'TEUR',tip:'"ü" som et rundt i'},
-    {dk:'nøgle',de:'der Schlüssel',pron:'SHLUES-el',tip:'"Sch" udtales "Sh"'},
-    {dk:'bog',de:'das Buch',pron:'BOOKH',tip:'"ch" bagest i munden'},
-    {dk:'telefon',de:'das Telefon',pron:'teh-leh-FOHN',tip:'Næsten som på dansk'},
-    {dk:'computer',de:'der Computer',pron:'kom-PYOO-ter',tip:'Næsten det samme'},
-    {dk:'tøj',de:'die Kleidung',pron:'KLY-doong',tip:'"ei" udtales "ai"'},
-    {dk:'skjorte',de:'das Hemd',pron:'HEMD',tip:'Kort, hårdt d til sidst'},
-    {dk:'bukser',de:'die Hose',pron:'HOH-zeh',tip:'"H" udtales normalt'},
-    {dk:'sko',de:'der Schuh',pron:'SHOO',tip:'"Sch" = sh, langt u'},
-    {dk:'hat',de:'der Hut',pron:'HOOT',tip:'Langt u, enkelt t'},
-    {dk:'taske',de:'die Tasche',pron:'TASH-eh',tip:'"Sch" = sh'},
-    {dk:'pen',de:'der Stift',pron:'SHTIFT',tip:'"St" = Sht'},
-    {dk:'papir',de:'das Papier',pron:'pah-PEER',tip:'Trykket er på sidst stavelse'},
-    {dk:'ur',de:'die Uhr',pron:'OOR',tip:'Langt u'},
-  ],
-  nature:[
-    {dk:'sol',de:'die Sonne',pron:'ZON-eh',tip:'"S" foran vokal er "Z"'},
-    {dk:'måne',de:'der Mond',pron:'MOHNT',tip:'Langt o'},
-    {dk:'sne',de:'der Schnee',pron:'SHNEH',tip:'"Sch" = sh, dobbelt e'},
-    {dk:'regn',de:'der Regen',pron:'REH-gen',tip:'Blødt g i midten'},
-    {dk:'vind',de:'der Wind',pron:'VINT',tip:'"W" = V på tysk'},
-    {dk:'sky',de:'die Wolke',pron:'VOL-keh',tip:'"W" = V'},
-    {dk:'træ',de:'der Baum',pron:'BOWM',tip:'"au" som ow i "cow"'},
-    {dk:'blomst',de:'die Blume',pron:'BLOO-meh',tip:'Langt u'},
-    {dk:'hav',de:'das Meer',pron:'MAYR',tip:'Dobbelt e, langt lyd'},
-    {dk:'bjerg',de:'der Berg',pron:'BAYRG',tip:'Blødt g til sidst'},
-    {dk:'skov',de:'der Wald',pron:'VALT',tip:'"W" = V'},
-    {dk:'flod',de:'der Fluss',pron:'FLOOS',tip:'Dobbelt s = skarpt s'},
-    {dk:'sten',de:'der Stein',pron:'SHTYNE',tip:'"St" = Sht, "ei" = ay'},
-    {dk:'sand',de:'der Sand',pron:'ZANT',tip:'"S" = Z foran vokal'},
-    {dk:'fugl',de:'der Vogel',pron:'FOH-gel',tip:'"V" udtales F'},
-    {dk:'hund',de:'der Hund',pron:'HOONT',tip:'Kort u, hårdt dt'},
-    {dk:'kat',de:'die Katze',pron:'KAT-seh',tip:'Næsten som på dansk'},
-  ],
-  travel:[
-    {dk:'tog',de:'der Zug',pron:'TSOOG',tip:'"Z" = ts'},
-    {dk:'bus',de:'der Bus',pron:'BOOS',tip:'Langt u'},
-    {dk:'fly',de:'das Flugzeug',pron:'FLOOK-tsoig',tip:'Sammensætning: fly + tog'},
-    {dk:'station',de:'der Bahnhof',pron:'BAHN-hof',tip:'Bahn = jernbane, Hof = gård'},
-    {dk:'lufthavn',de:'der Flughafen',pron:'FLOOK-hah-fen',tip:'Flug = fly, Hafen = havn'},
-    {dk:'hotel',de:'das Hotel',pron:'hoh-TEL',tip:'Tryk på sidst stavelse'},
-    {dk:'restaurant',de:'das Restaurant',pron:'res-to-RANT',tip:'Næsten som på dansk'},
-    {dk:'kort',de:'die Karte',pron:'KAR-teh',tip:'Også = menukort'},
-    {dk:'pas',de:'der Reisepass',pron:'RY-zeh-pas',tip:'Reise = rejse'},
-    {dk:'bagage',de:'das Gepäck',pron:'geh-PAEK',tip:'"ä" som et åbent e'},
-    {dk:'billet',de:'die Fahrkarte',pron:'FAR-kar-teh',tip:'Fahr = kørsel, Karte = kort'},
-    {dk:'by',de:'die Stadt',pron:'SHTAT',tip:'"St" = Sht'},
-    {dk:'gade',de:'die Straße',pron:'SHTRAH-seh',tip:'ß = skarpt dobbelt s'},
-    {dk:'venstre',de:'links',pron:'LINKS',tip:'Næsten som på dansk'},
-    {dk:'højre',de:'rechts',pron:'REKHTS',tip:'"ch" + ts til sidst'},
-    {dk:'ligeud',de:'geradeaus',pron:'geh-rah-deh-OWS',tip:'Langt sammensætning'},
-  ],
-  body:[
-    {dk:'hoved',de:'der Kopf',pron:'KOPF',tip:'Skarpt pf-lyd til sidst'},
-    {dk:'øje',de:'das Auge',pron:'OW-geh',tip:'"au" som ow i cow'},
-    {dk:'øre',de:'das Ohr',pron:'OHR',tip:'Langt o'},
-    {dk:'næse',de:'die Nase',pron:'NAH-zeh',tip:'"S" = Z i midten'},
-    {dk:'mund',de:'der Mund',pron:'MOONT',tip:'Langt u'},
-    {dk:'tand',de:'der Zahn',pron:'TSAHN',tip:'"Z" = ts'},
-    {dk:'arm',de:'der Arm',pron:'ARM',tip:'Næsten det samme'},
-    {dk:'hånd',de:'die Hand',pron:'HANT',tip:'Hårdt t til sidst'},
-    {dk:'finger',de:'der Finger',pron:'FING-er',tip:'Næsten det samme'},
-    {dk:'ben',de:'das Bein',pron:'BYNE',tip:'"ei" = ay'},
-    {dk:'fod',de:'der Fuß',pron:'FOOS',tip:'ß = skarpt s'},
-    {dk:'ryg',de:'der Rücken',pron:'RUEK-en',tip:'"ü" = rundt i'},
-    {dk:'hjerte',de:'das Herz',pron:'HAIRTS',tip:'"Z" = ts til sidst'},
-    {dk:'mave',de:'der Magen / Bauch',pron:'MAH-gen / BOWKH',tip:'Magen = maven som organ, Bauch = den bløde mave'},
-    {dk:'skulder',de:'die Schulter',pron:'SHOOL-ter',tip:'"Sch" = sh'},
-    {dk:'hår',de:'das Haar',pron:'HAHR',tip:'Dobbelt a = langt a'},
-  ],
-  emotions:[
-    {dk:'glad',de:'glücklich',pron:'GLUE-klikh',tip:'"ü" = rundt i, "ch" = blødt lyd'},
-    {dk:'ked af det',de:'traurig',pron:'TROW-rikh',tip:'"au" = ow som i cow'},
-    {dk:'vred',de:'wütend',pron:'VUE-tent',tip:'"W" = V, "ü" = rundt i'},
-    {dk:'bange',de:'ängstlich',pron:'ENGST-likh',tip:'"ä" = åbent e'},
-    {dk:'træt',de:'müde',pron:'MUE-deh',tip:'"ü" = rundt i'},
-    {dk:'sulten',de:'hungrig',pron:'HOONG-rikh',tip:'"h" udtales'},
-    {dk:'forelsket',de:'verliebt',pron:'fer-LEEPT',tip:'"ie" = langt i'},
-    {dk:'ensom',de:'einsam',pron:'AYN-zahm',tip:'"ei" = ay'},
-    {dk:'stolt',de:'stolz',pron:'SHTOLTS',tip:'"St" = Sht, "z" = ts'},
-    {dk:'nervøs',de:'nervös',pron:'ner-VEURS',tip:'"ö" = rundt e'},
-    {dk:'overrasket',de:'überrascht',pron:'UE-ber-rasht',tip:'"ü" = rundt i'},
-    {dk:'kærlig',de:'liebevoll',pron:'LEE-beh-fol',tip:'"ie" = langt i, "v" = f'},
-    {dk:'kærlighed',de:'die Liebe',pron:'LEE-beh',tip:'"ie" = langt i'},
-    {dk:'kys',de:'der Kuss',pron:'KOOS',tip:'Dobbelt s = skarpt'},
-    {dk:'kæreste',de:'die/der Freund(in)',pron:'FROYND',tip:'Freundin = kæreste (kvinde)'},
-    {dk:'savne',de:'vermissen',pron:'fer-MIS-en',tip:'Naturlig følelse'},
-    {dk:'undskyld',de:'Entschuldigung',pron:'ent-SHOOL-dee-goong',tip:'Vigtigt ord!'},
-    {dk:'tak',de:'Danke',pron:'DANK-eh',tip:'Kort og venlig'},
-  ],
-  numbers:[
-    {dk:'en/et',de:'eins',pron:'AYNS',tip:'Tæller: eins, zwei, drei...'},
-    {dk:'to',de:'zwei',pron:'TSVAY',tip:'"zw" = tsv'},
-    {dk:'tre',de:'drei',pron:'DRY',tip:'"ei" = ay'},
-    {dk:'fire',de:'vier',pron:'FEER',tip:'"ie" = langt i, "v" = f'},
-    {dk:'fem',de:'fünf',pron:'FUENF',tip:'"ü" = rundt i'},
-    {dk:'seks',de:'sechs',pron:'ZEKS',tip:'"s" = z foran vokal'},
-    {dk:'syv',de:'sieben',pron:'ZEE-ben',tip:'"ie" = langt i'},
-    {dk:'otte',de:'acht',pron:'AKHT',tip:'"ch" = hård lyd'},
-    {dk:'ni',de:'neun',pron:'NOYN',tip:'"eu" = oy'},
-    {dk:'ti',de:'zehn',pron:'TSAYN',tip:'"z" = ts'},
-    {dk:'mandag',de:'Montag',pron:'MOHN-tahg',tip:'Alle ugedage er hankøn'},
-    {dk:'tirsdag',de:'Dienstag',pron:'DEENS-tahg',tip:'Dienst = tjeneste'},
-    {dk:'onsdag',de:'Mittwoch',pron:'MIT-vokh',tip:'Mitte = midten af ugen'},
-    {dk:'torsdag',de:'Donnerstag',pron:'DON-ers-tahg',tip:'Donner = torden'},
-    {dk:'fredag',de:'Freitag',pron:'FRY-tahg',tip:'Frei = fri/ledig'},
-    {dk:'lørdag',de:'Samstag',pron:'ZAMS-tahg',tip:'"S" = Z'},
-    {dk:'søndag',de:'Sonntag',pron:'ZON-tahg',tip:'Sonne = sol'},
-    {dk:'hvad er klokken?',de:'Wie spät ist es?',pron:'VEE shpayt ist es',tip:'Spät = sent — "hvad er klokken?"'},
-  ],
-  shopping:[
-    {dk:'rød',de:'rot',pron:'ROHT',tip:'Langt o'},
-    {dk:'blå',de:'blau',pron:'BLOW',tip:'"au" = ow i cow'},
-    {dk:'grøn',de:'grün',pron:'GRUEN',tip:'"ü" = rundt i'},
-    {dk:'gul',de:'gelb',pron:'GELP',tip:'Hårdt p til sidst'},
-    {dk:'sort',de:'schwarz',pron:'SHVARTS',tip:'"Sch" = sh, "z" = ts'},
-    {dk:'hvid',de:'weiß',pron:'VICE',tip:'"W"=V, "ei"=ay, "ß"=s'},
-    {dk:'pink',de:'rosa / pink',pron:'ROH-zah',tip:'Rosa er det mest brugte'},
-    {dk:'orange',de:'orange',pron:'oh-RAHN-zheh',tip:'Næsten det samme'},
-    {dk:'lilla',de:'lila',pron:'LEE-lah',tip:'"ie" = langt i'},
-    {dk:'brun',de:'braun',pron:'BROWN',tip:'"au" = ow som i "brown"!'},
-    {dk:'kjole',de:'das Kleid',pron:'KLAYT',tip:'"ei" = ay'},
-    {dk:'jakke',de:'die Jacke',pron:'YAK-eh',tip:'"J" udtales som y'},
-    {dk:'sweater',de:'der Pullover',pron:'POOL-oh-ver',tip:'"V" = f i midten'},
-    {dk:'nederdel',de:'der Rock',pron:'ROCK',tip:'Som det engelske "rock"'},
-    {dk:'størrelse',de:'die Größe',pron:'GREUR-seh',tip:'"ö" = rundt e'},
-    {dk:'billig',de:'günstig',pron:'GUEN-stikh',tip:'"ü" = rundt i'},
-    {dk:'dyr',de:'teuer',pron:'TOY-er',tip:'"eu" = oy'},
-    {dk:'marked',de:'der Markt',pron:'MARKT',tip:'Næsten det samme'},
-  ]
+  food:[{dk:'et brød',de:'das Brot',pron:'bROHt',tip:'Omtrent som "brot"'},{dk:'en mælk',de:'die Milch',pron:'MILkh',tip:'"ch" blødt bagest i munden'},{dk:'et æg',de:'das Ei',pron:'EYE',tip:'Som engelsk "eye"'},{dk:'en ost',de:'der Käse',pron:'KAY-zeh',tip:'"ä" = åben e-lyd'},{dk:'en kartoffel',de:'die Kartoffel',pron:'kar-TOF-el',tip:'Næsten som på dansk'},{dk:'et smør',de:'die Butter',pron:'BOO-ter',tip:'Kort, rund u'},{dk:'en kylling',de:'das Huhn',pron:'HOON',tip:'Dyb u-lyd'},{dk:'en fisk',de:'der Fisch',pron:'FISH',tip:'Som engelsk "fish"'},{dk:'en tomat',de:'die Tomate',pron:'toh-MAH-teh',tip:'Tryk på 2. stavelse'},{dk:'et løg',de:'die Zwiebel',pron:'TSVEE-bel',tip:'"zw"="tsv"'},{dk:'en kaffe',de:'der Kaffee',pron:'KAF-feh',tip:'To f\'er'},{dk:'en te',de:'der Tee',pron:'TEH',tip:'Langt e'},{dk:'et vand',de:'das Wasser',pron:'VAS-er',tip:'"W"="V"'},{dk:'en juice',de:'der Saft',pron:'ZAFT',tip:'"S"="Z" foran vokal'},{dk:'en kage',de:'der Kuchen',pron:'KOO-khen',tip:'"ch" blød lyd'},{dk:'et sukker',de:'der Zucker',pron:'TSOO-ker',tip:'"Z"="ts"'},{dk:'et salt',de:'das Salz',pron:'ZALTS',tip:'Slut med "ts"'},{dk:'et smørrebrød',de:'das Butterbrot',pron:'BOO-ter-broht',tip:'Sammensætning'}],
+  everyday:[{dk:'en seng',de:'das Bett',pron:'BET',tip:'Dobbelt t'},{dk:'en stol',de:'der Stuhl',pron:'SHTOOL',tip:'"St"="Sht"'},{dk:'et bord',de:'der Tisch',pron:'TISH',tip:'Bord/skrivebord'},{dk:'et vindue',de:'das Fenster',pron:'FEN-ster',tip:'1. stavelse'},{dk:'en dør',de:'die Tür',pron:'TEUR',tip:'"ü"=rundt i'},{dk:'en nøgle',de:'der Schlüssel',pron:'SHLUES-el',tip:'"Sch"="sh"'},{dk:'en bog',de:'das Buch',pron:'BOOKH',tip:'"ch" bagest i munden'},{dk:'en telefon',de:'das Telefon',pron:'teh-leh-FOHN',tip:'Tryk på sidst'},{dk:'en computer',de:'der Computer',pron:'kom-PYOO-ter',tip:'Næsten ens'},{dk:'en skjorte',de:'das Hemd',pron:'HEMD',tip:'Hårdt d'},{dk:'en bukse',de:'die Hose',pron:'HOH-zeh',tip:'"H" udtales'},{dk:'en sko',de:'der Schuh',pron:'SHOO',tip:'"Sch"=sh'},{dk:'en hat',de:'der Hut',pron:'HOOT',tip:'Langt u'},{dk:'en taske',de:'die Tasche',pron:'TASH-eh',tip:'"Sch"=sh'},{dk:'en pen',de:'der Stift',pron:'SHTIFT',tip:'"St"=Sht'},{dk:'et ur',de:'die Uhr',pron:'OOR',tip:'Langt u'}],
+  nature:[{dk:'en sol',de:'die Sonne',pron:'ZON-eh',tip:'"S"="Z" foran vokal'},{dk:'en måne',de:'der Mond',pron:'MOHNT',tip:'Langt o'},{dk:'en sne',de:'der Schnee',pron:'SHNEH',tip:'"Sch"=sh'},{dk:'en regn',de:'der Regen',pron:'REH-gen',tip:'Blødt g'},{dk:'en vind',de:'der Wind',pron:'VINT',tip:'"W"=V'},{dk:'en sky',de:'die Wolke',pron:'VOL-keh',tip:'"W"=V'},{dk:'et træ',de:'der Baum',pron:'BOWM',tip:'"au"=ow'},{dk:'en blomst',de:'die Blume',pron:'BLOO-meh',tip:'Langt u'},{dk:'et hav',de:'das Meer',pron:'MAYR',tip:'Dobbelt e'},{dk:'et bjerg',de:'der Berg',pron:'BAYRG',tip:'Blødt g'},{dk:'en skov',de:'der Wald',pron:'VALT',tip:'"W"=V'},{dk:'en fugl',de:'der Vogel',pron:'FOH-gel',tip:'"V"=F'},{dk:'en hund',de:'der Hund',pron:'HOONT',tip:'Kort u'},{dk:'en kat',de:'die Katze',pron:'KAT-seh',tip:'Næsten ens'}],
+  travel:[{dk:'et tog',de:'der Zug',pron:'TSOOG',tip:'"Z"=ts'},{dk:'en bus',de:'der Bus',pron:'BOOS',tip:'Langt u'},{dk:'et fly',de:'das Flugzeug',pron:'FLOOK-tsoig',tip:'Fly+tog'},{dk:'en station',de:'der Bahnhof',pron:'BAHN-hof',tip:'Jernbanegård'},{dk:'en lufthavn',de:'der Flughafen',pron:'FLOOK-hah-fen',tip:'Fly+havn'},{dk:'et hotel',de:'das Hotel',pron:'hoh-TEL',tip:'Tryk på sidst'},{dk:'en restaurant',de:'das Restaurant',pron:'res-to-RANT',tip:'Næsten ens'},{dk:'et pas',de:'der Reisepass',pron:'RY-zeh-pas',tip:'Reise=rejse'},{dk:'en billet',de:'die Fahrkarte',pron:'FAR-kar-teh',tip:'Kørselskort'},{dk:'en by',de:'die Stadt',pron:'SHTAT',tip:'"St"=Sht'},{dk:'en gade',de:'die Straße',pron:'SHTRAH-seh',tip:'ß=skarpt s'},{dk:'til venstre',de:'links',pron:'LINKS',tip:'Næsten ens'},{dk:'til højre',de:'rechts',pron:'REKHTS',tip:'"ch"+ts'},{dk:'ligeud',de:'geradeaus',pron:'geh-rah-deh-OWS',tip:'Langt ord'}],
+  body:[{dk:'et hoved',de:'der Kopf',pron:'KOPF',tip:'pf til sidst'},{dk:'et øje',de:'das Auge',pron:'OW-geh',tip:'"au"=ow'},{dk:'et øre',de:'das Ohr',pron:'OHR',tip:'Langt o'},{dk:'en næse',de:'die Nase',pron:'NAH-zeh',tip:'"S"=Z'},{dk:'en mund',de:'der Mund',pron:'MOONT',tip:'Langt u'},{dk:'en tand',de:'der Zahn',pron:'TSAHN',tip:'"Z"=ts'},{dk:'en arm',de:'der Arm',pron:'ARM',tip:'Næsten ens'},{dk:'en hånd',de:'die Hand',pron:'HANT',tip:'Hårdt t'},{dk:'et ben',de:'das Bein',pron:'BYNE',tip:'"ei"=ay'},{dk:'en fod',de:'der Fuß',pron:'FOOS',tip:'ß=skarpt s'},{dk:'en ryg',de:'der Rücken',pron:'RUEK-en',tip:'"ü"=rundt i'},{dk:'et hjerte',de:'das Herz',pron:'HAIRTS',tip:'"Z"=ts'},{dk:'en mave',de:'der Bauch',pron:'BOWKH',tip:'"au"=ow'},{dk:'en skulder',de:'die Schulter',pron:'SHOOL-ter',tip:'"Sch"=sh'}],
+  emotions:[{dk:'glad',de:'glücklich',pron:'GLUE-klikh',tip:'"ü"=rundt i'},{dk:'ked af det',de:'traurig',pron:'TROW-rikh',tip:'"au"=ow'},{dk:'vred',de:'wütend',pron:'VUE-tent',tip:'"W"=V,"ü"=rundt i'},{dk:'bange',de:'ängstlich',pron:'ENGST-likh',tip:'"ä"=åbent e'},{dk:'træt',de:'müde',pron:'MUE-deh',tip:'"ü"=rundt i'},{dk:'sulten',de:'hungrig',pron:'HOONG-rikh',tip:'"h" udtales'},{dk:'forelsket',de:'verliebt',pron:'fer-LEEPT',tip:'"ie"=langt i'},{dk:'ensom',de:'einsam',pron:'AYN-zahm',tip:'"ei"=ay'},{dk:'stolt',de:'stolz',pron:'SHTOLTS',tip:'"St"=Sht'},{dk:'nervøs',de:'nervös',pron:'ner-VEURS',tip:'"ö"=rundt e'},{dk:'overrasket',de:'überrascht',pron:'UE-ber-rasht',tip:'"ü"=rundt i'},{dk:'en kærlighed',de:'die Liebe',pron:'LEE-beh',tip:'"ie"=langt i'},{dk:'et kys',de:'der Kuss',pron:'KOOS',tip:'Dobbelt s'},{dk:'en kæreste',de:'der/die Freund(in)',pron:'FROYND',tip:'Freundin=kvinde'},{dk:'at savne',de:'vermissen',pron:'fer-MIS-en',tip:'Ich vermisse dich'}],
+  numbers:[{dk:'en',de:'eins',pron:'AYNS',tip:'Tæller'},{dk:'to',de:'zwei',pron:'TSVAY',tip:'"zw"=tsv'},{dk:'tre',de:'drei',pron:'DRY',tip:'"ei"=ay'},{dk:'fire',de:'vier',pron:'FEER',tip:'"ie"=langt i'},{dk:'fem',de:'fünf',pron:'FUENF',tip:'"ü"=rundt i'},{dk:'seks',de:'sechs',pron:'ZEKS',tip:'"s"=z'},{dk:'syv',de:'sieben',pron:'ZEE-ben',tip:'"ie"=langt i'},{dk:'otte',de:'acht',pron:'AKHT',tip:'"ch"=hård lyd'},{dk:'ni',de:'neun',pron:'NOYN',tip:'"eu"=oy'},{dk:'ti',de:'zehn',pron:'TSAYN',tip:'"z"=ts'},{dk:'mandag',de:'Montag',pron:'MOHN-tahg',tip:'Hankøn'},{dk:'tirsdag',de:'Dienstag',pron:'DEENS-tahg',tip:''},{dk:'onsdag',de:'Mittwoch',pron:'MIT-vokh',tip:'Midten af ugen'},{dk:'torsdag',de:'Donnerstag',pron:'DON-ers-tahg',tip:'Donner=torden'},{dk:'fredag',de:'Freitag',pron:'FRY-tahg',tip:'Frei=fri'},{dk:'lørdag',de:'Samstag',pron:'ZAMS-tahg',tip:''},{dk:'søndag',de:'Sonntag',pron:'ZON-tahg',tip:'Sonne=sol'}],
+  shopping:[{dk:'rød',de:'rot',pron:'ROHT',tip:'Langt o'},{dk:'blå',de:'blau',pron:'BLOW',tip:'"au"=ow'},{dk:'grøn',de:'grün',pron:'GRUEN',tip:'"ü"=rundt i'},{dk:'gul',de:'gelb',pron:'GELP',tip:'Hårdt p'},{dk:'sort',de:'schwarz',pron:'SHVARTS',tip:'"Sch"=sh'},{dk:'hvid',de:'weiß',pron:'VICE',tip:'"W"=V,"ei"=ay'},{dk:'pink',de:'rosa',pron:'ROH-zah',tip:'Rosa'},{dk:'lilla',de:'lila',pron:'LEE-lah',tip:''},{dk:'brun',de:'braun',pron:'BROWN',tip:'Som engelsk "brown"!'},{dk:'en kjole',de:'das Kleid',pron:'KLAYT',tip:'"ei"=ay'},{dk:'en jakke',de:'die Jacke',pron:'YAK-eh',tip:'"J"=y'},{dk:'en sweater',de:'der Pullover',pron:'POOL-oh-ver',tip:''},{dk:'en størrelse',de:'die Größe',pron:'GREUR-seh',tip:'"ö"=rundt e'},{dk:'billig',de:'günstig',pron:'GUEN-stikh',tip:'"ü"=rundt i'},{dk:'dyr',de:'teuer',pron:'TOY-er',tip:'"eu"=oy'},{dk:'et marked',de:'der Markt',pron:'MARKT',tip:'Næsten ens'}]
 };
-
-// sentences / phrases for sentence-type cards
-const SENT=[
-  {dk:'Hvad hedder du?',de:'Wie heißt du?',type:'match'},
-  {dk:'Jeg hedder Lisa.',de:'Ich heiße Lisa.',type:'match'},
-  {dk:'Hvor gammel er du?',de:'Wie alt bist du?',type:'match'},
-  {dk:'Jeg er glad for dig.',de:'Ich mag dich sehr.',type:'match'},
-  {dk:'God morgen!',de:'Guten Morgen!',type:'match'},
-  {dk:'Godnat.',de:'Gute Nacht.',type:'match'},
-  {dk:'Jeg savner dig.',de:'Ich vermisse dich.',type:'match'},
-  {dk:'Jeg elsker dig.',de:'Ich liebe dich.',type:'match'},
-  {dk:'Hvad vil du have?',de:'Was möchtest du?',type:'match'},
-  {dk:'Vi ses i morgen.',de:'Wir sehen uns morgen.',type:'match'},
-];
-const FILL=[
-  {sent_dk:'Jeg er __ (glad) i dag.',sent_de:'Ich bin ___ heute.',answer:'glücklich',hint:'følelse for at have det godt'},
-  {sent_dk:'Det er __ (smukt) vejr.',sent_de:'Das Wetter ist ___ heute.',answer:'schön',hint:'fin/smuk'},
-  {sent_dk:'Jeg vil gerne have __ (vand).',sent_de:'Ich hätte gerne ___, bitte.',answer:'Wasser',hint:'noget at drikke'},
-  {sent_dk:'Bogen er __ (stor).',sent_de:'Das Buch ist ___.',answer:'groß',hint:'modsætningen til lille'},
-  {sent_dk:'Jeg bor i en __ (by).',sent_de:'Ich wohne in einer ___.',answer:'Stadt',hint:'sted med mange mennesker'},
-  {sent_dk:'Han er min __ (kæreste).',sent_de:'Er ist mein ___.',answer:'Freund',hint:'romantisk partner (mand)'},
-  {sent_dk:'Regnet falder __ (ude).',sent_de:'Es regnet ___.',answer:'draußen',hint:'udenfor'},
-  {sent_dk:'Maden smager __ (godt).',sent_de:'Das Essen schmeckt ___.',answer:'gut',hint:'positivt ord for smag'},
-];
-const WORDORDER=[
-  {words:['Ich','liebe','dich'],correct:'Ich liebe dich',dk:'Jeg elsker dig'},
-  {words:['Guten','Morgen','wie','geht','es','dir'],correct:'Guten Morgen wie geht es dir',dk:'God morgen, hvordan går det?'},
-  {words:['Das','Wetter','ist','schön','heute'],correct:'Das Wetter ist schön heute',dk:'Vejret er smukt i dag'},
-  {words:['Ich','bin','sehr','müde'],correct:'Ich bin sehr müde',dk:'Jeg er meget træt'},
-  {words:['Wir','gehen','ins','Restaurant'],correct:'Wir gehen ins Restaurant',dk:'Vi går på restaurant'},
-  {words:['Wie','viel','kostet','das'],correct:'Wie viel kostet das',dk:'Hvad koster det?'},
-  {words:['Ich','möchte','Kaffee','bitte'],correct:'Ich möchte Kaffee bitte',dk:'Jeg vil gerne have kaffe'},
-];
-
 V.mixed=[...V.food,...V.everyday,...V.nature,...V.travel,...V.body,...V.emotions,...V.numbers,...V.shopping];
-
-// ─── Game state ───
-const G={
-  playMode:'together',
-  soloPlayer:'lisa',
-  p1:'Lisa',p2:'Mads',
-  p1score:0,p2score:0,
-  soloScore:0,
-  currentPlayer:1,
-  questions:[],qIdx:0,totalQ:10,
-  selectedCats:['mixed'],
-  roundsChoice:5,
-  matchLeft:[],matchRight:[],matchSel:null,
-  wordTiles:[],wordPlaced:[]
+const SENT=[{dk:'Hvad hedder du?',de:'Wie heißt du?'},{dk:'Jeg hedder Lisa.',de:'Ich heiße Lisa.'},{dk:'Hvor gammel er du?',de:'Wie alt bist du?'},{dk:'Jeg er glad for dig.',de:'Ich mag dich sehr.'},{dk:'God morgen!',de:'Guten Morgen!'},{dk:'Godnat.',de:'Gute Nacht.'},{dk:'Jeg savner dig.',de:'Ich vermisse dich.'},{dk:'Jeg elsker dig.',de:'Ich liebe dich.'},{dk:'Hvad vil du have?',de:'Was möchtest du?'},{dk:'Vi ses i morgen.',de:'Wir sehen uns morgen.'},{dk:'Undskyld, jeg er forsinket.',de:'Entschuldigung, ich bin zu spät.'},{dk:'Kan du hjælpe mig?',de:'Kannst du mir helfen?'},{dk:'Det er dejligt vejr i dag.',de:'Das Wetter ist heute schön.'},{dk:'Jeg er sulten.',de:'Ich bin hungrig.'},{dk:'Hvad koster det?',de:'Was kostet das?'},{dk:'Jeg forstår ikke.',de:'Ich verstehe nicht.'},{dk:'Kan du tale langsommere?',de:'Kannst du langsamer sprechen?'},{dk:'Jeg vil gerne have en kaffe.',de:'Ich möchte einen Kaffee.'},{dk:'Vi er et godt par.',de:'Wir sind ein gutes Paar.'},{dk:'Har du sovet godt?',de:'Hast du gut geschlafen?'},{dk:'Hvad laver du i dag?',de:'Was machst du heute?'},{dk:'Jeg er træt.',de:'Ich bin müde.'},{dk:'Det lyder sjovt!',de:'Das klingt lustig!'},{dk:'Jeg er stolt af dig.',de:'Ich bin stolz auf dich.'},{dk:'Jeg glæder mig til at se dig.',de:'Ich freue mich, dich zu sehen.'}];
+const FILL=[{sent_dk:'Jeg er ___ (glad) i dag.',sent_de:'Ich bin ___ heute.',answer:'glücklich',hint:'følelse for at have det godt'},{sent_dk:'Det er ___ (smukt) vejr.',sent_de:'Das Wetter ist ___ heute.',answer:'schön',hint:'fin, dejlig'},{sent_dk:'Jeg vil gerne have noget ___ (vand).',sent_de:'Ich hätte gerne ___, bitte.',answer:'Wasser',hint:'noget at drikke'},{sent_dk:'Bogen er ___ (stor).',sent_de:'Das Buch ist ___.',answer:'groß',hint:'modsætning til lille'},{sent_dk:'Jeg bor i en ___ (by).',sent_de:'Ich wohne in einer ___.',answer:'Stadt',hint:'sted med mange mennesker'},{sent_dk:'Han er min ___ (kæreste).',sent_de:'Er ist mein ___.',answer:'Freund',hint:'romantisk partner (mand)'},{sent_dk:'Maden smager ___ (godt).',sent_de:'Das Essen schmeckt ___.',answer:'gut',hint:'positivt ord'},{sent_dk:'Jeg er ___ (sulten).',sent_de:'Ich bin ___.',answer:'hungrig',hint:'maven rumler'},{sent_dk:'Jeg taler lidt ___ (tysk).',sent_de:'Ich spreche ein bisschen ___.',answer:'Deutsch',hint:'sproget vi lærer'},{sent_dk:'Han er meget ___ (træt).',sent_de:'Er ist sehr ___.',answer:'müde',hint:'mangler søvn'},{sent_dk:'Togstationen er ___ (stor).',sent_de:'Der Bahnhof ist ___.',answer:'groß',hint:'det modsatte af lille'},{sent_dk:'Katten er ___ (sort).',sent_de:'Die Katze ist ___.',answer:'schwarz',hint:'den mørkeste farve'}];
+const WORDORDER=[{words:['Ich','liebe','dich'],correct:'Ich liebe dich',dk:'Jeg elsker dig'},{words:['Guten','Morgen','wie','geht','es','dir'],correct:'Guten Morgen wie geht es dir',dk:'God morgen, hvordan går det?'},{words:['Das','Wetter','ist','schön','heute'],correct:'Das Wetter ist schön heute',dk:'Vejret er smukt i dag'},{words:['Ich','bin','sehr','müde'],correct:'Ich bin sehr müde',dk:'Jeg er meget træt'},{words:['Wir','gehen','ins','Restaurant'],correct:'Wir gehen ins Restaurant',dk:'Vi går på restaurant'},{words:['Wie','viel','kostet','das'],correct:'Wie viel kostet das',dk:'Hvad koster det?'},{words:['Ich','möchte','einen','Kaffee','bitte'],correct:'Ich möchte einen Kaffee bitte',dk:'Jeg vil gerne have en kaffe'},{words:['Kannst','du','mir','helfen'],correct:'Kannst du mir helfen',dk:'Kan du hjælpe mig?'},{words:['Ich','vermisse','dich','sehr'],correct:'Ich vermisse dich sehr',dk:'Jeg savner dig meget'},{words:['Hast','du','gut','geschlafen'],correct:'Hast du gut geschlafen',dk:'Har du sovet godt?'},{words:['Ich','bin','stolz','auf','dich'],correct:'Ich bin stolz auf dich',dk:'Jeg er stolt af dig'},{words:['Was','machst','du','heute'],correct:'Was machst du heute',dk:'Hvad laver du i dag?'}];
+// ── Grammar data ──────────────────────────────────────────
+const GRAM={
+  de:{
+    a1:[
+      {title:'Der, die, das — Artikler',title_de:'Artikel',body:`
+        <div class="gram-rule"><div class="gram-rule-title">De tre køn · Die drei Geschlechter</div>
+        <div class="gram-rule-text">Alle tyske navneord har et køn: <strong>der</strong> (han), <strong>die</strong> (hun), <strong>das</strong> (intet). Man skal lære dem udenad som en del af ordet!<br><em>Jedes Substantiv hat ein Geschlecht — auswendig lernen!</em></div>
+        <div class="gram-example"><span class="de">der Mann, der Hund, der Tag</span><br><span class="dk">manden, hunden, dagen</span></div>
+        <div class="gram-example"><span class="de">die Frau, die Katze, die Blume</span><br><span class="dk">kvinden, katten, blomsten</span></div>
+        <div class="gram-example"><span class="de">das Kind, das Buch, das Haus</span><br><span class="dk">barnet, bogen, huset</span></div>
+        <div class="gram-tip">Tommelfingerregler: ord på <strong>-ung, -heit, -keit, -ion</strong> = die · ord på <strong>-chen, -lein</strong> = das · ord på <strong>-er, -ig</strong> = ofte der</div></div>`},
+      {title:'Sein & haben — at være & have',title_de:'Sein & haben',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Sein (at være)</div>
+        <div class="gram-example"><span class="de">ich bin · du bist · er/sie/es ist</span><br><span class="dk">jeg er · du er · han/hun/den er</span></div>
+        <div class="gram-example"><span class="de">wir sind · ihr seid · sie/Sie sind</span><br><span class="dk">vi er · I er · de/De er</span></div></div>
+        <div class="gram-rule"><div class="gram-rule-title">Haben (at have)</div>
+        <div class="gram-example"><span class="de">ich habe · du hast · er/sie/es hat</span><br><span class="dk">jeg har · du har · han/hun/den har</span></div>
+        <div class="gram-example"><span class="de">wir haben · ihr habt · sie/Sie haben</span><br><span class="dk">vi har · I har · de/De har</span></div></div>`},
+      {title:'Grundsætning & ordstilling',title_de:'Grundsatz & Wortstellung',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Verbet er altid nr. 2!</div>
+        <div class="gram-rule-text">I tyske hovedsætninger er verbet <em>altid</em> den 2. "blok" — ligesom på dansk.</div>
+        <div class="gram-example"><span class="de">Ich trinke Kaffee.</span><br><span class="dk">Jeg drikker kaffe.</span></div>
+        <div class="gram-example"><span class="de">Heute trinke ich Kaffee.</span><br><span class="dk">I dag drikker jeg kaffe. (verbet stadig nr. 2)</span></div>
+        <div class="gram-tip">Hvis sætningen starter med et tidsord, byttes subjekt og verbum — men verbet er stadig nr. 2!</div></div>`},
+      {title:'Verneinung — nægtelse',title_de:'Verneinung',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Nicht vs. kein</div>
+        <div class="gram-rule-text"><strong>nicht</strong> negerer verber, adjektiver og bestemte ting.<br><strong>kein/keine/kein</strong> negerer ubestemte navneord (="ingen").</div>
+        <div class="gram-example"><span class="de">Ich bin nicht müde.</span><br><span class="dk">Jeg er ikke træt.</span></div>
+        <div class="gram-example"><span class="de">Ich habe kein Brot.</span><br><span class="dk">Jeg har intet brød.</span></div>
+        <div class="gram-example"><span class="de">Ich habe keine Zeit.</span><br><span class="dk">Jeg har ingen tid.</span></div></div>`}
+    ],
+    a2:[
+      {title:'Kasus — de 4 fald',title_de:'Kasus',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Nominativ — subjektet</div>
+        <div class="gram-example"><span class="de">Der Mann liest. Die Frau schläft. Das Kind spielt.</span><br><span class="dk">Manden læser. Kvinden sover. Barnet leger.</span></div></div>
+        <div class="gram-rule"><div class="gram-rule-title">Akkusativ — direkte objekt (der→den)</div>
+        <div class="gram-example"><span class="de">Ich sehe den Mann. Ich liebe die Frau. Ich kaufe das Buch.</span><br><span class="dk">Jeg ser manden. Jeg elsker kvinden. Jeg køber bogen.</span></div>
+        <div class="gram-tip">Kun hankøn ændrer sig: der → den i akkusativ!</div></div>
+        <div class="gram-rule"><div class="gram-rule-title">Dativ — indirekte objekt (dem/der/dem)</div>
+        <div class="gram-example"><span class="de">Ich gebe dem Mann das Buch.</span><br><span class="dk">Jeg giver manden bogen.</span></div>
+        <div class="gram-example"><span class="de">Ich helfe der Frau.</span><br><span class="dk">Jeg hjælper kvinden.</span></div>
+        <div class="gram-tip">Akkusativ-præp: durch, für, gegen, ohne, um · Dativ-præp: aus, bei, mit, nach, seit, von, zu</div></div>`},
+      {title:'Modalverber',title_de:'Modalverben',body:`
+        <div class="gram-rule"><div class="gram-rule-title">De 6 vigtigste</div>
+        <div class="gram-example"><span class="de">können (kan): ich kann, du kannst, er kann</span><br><span class="dk">Ich kann Deutsch sprechen.</span></div>
+        <div class="gram-example"><span class="de">müssen (skal/må): ich muss, du musst, er muss</span><br><span class="dk">Ich muss arbeiten.</span></div>
+        <div class="gram-example"><span class="de">wollen (vil): ich will, du willst, er will</span><br><span class="dk">Ich will Kaffee.</span></div>
+        <div class="gram-example"><span class="de">dürfen (må/har lov): ich darf, du darfst, er darf</span><br><span class="dk">Darf ich...? · Må jeg...?</span></div>
+        <div class="gram-example"><span class="de">sollen (skal/burde): ich soll, du sollst, er soll</span><br><span class="dk">Du sollst nicht lügen. · Du skal ikke lyve.</span></div>
+        <div class="gram-example"><span class="de">mögen (kan lide): ich mag, du magst, er mag</span><br><span class="dk">Ich mag dich. · Jeg kan godt lide dig.</span></div>
+        <div class="gram-tip">Modalverb + infinitiv til sidst: Ich kann nicht <strong>kommen</strong>.</div></div>`},
+      {title:'Perfekt — fortid',title_de:'Perfekt (Vergangenheit)',body:`
+        <div class="gram-rule"><div class="gram-rule-title">haben/sein + Partizip II</div>
+        <div class="gram-rule-text">Perfekt bruges til fortid i talt tysk (som dansk "have + participium").</div>
+        <div class="gram-example"><span class="de">Ich habe gegessen. (spist)</span><br><span class="dk">Regelmæssig: ge- + stamme + -t: machen → gemacht</span></div>
+        <div class="gram-example"><span class="de">Ich bin gegangen. (gået) · Ich bin gefahren. (kørt)</span><br><span class="dk">Bevægelse/tilstand: brug sein i stedet for haben</span></div>
+        <div class="gram-tip">Vigtige uregelmæssige: gehen→gegangen, essen→gegessen, trinken→getrunken, sehen→gesehen, schlafen→geschlafen</div></div>`},
+      {title:'W-spørgsmål',title_de:'W-Fragen',body:`
+        <div class="gram-example"><span class="de">Wer? · Wessen? · Wem? · Wen?</span><br><span class="dk">Hvem? (alle fald)</span></div>
+        <div class="gram-example"><span class="de">Was? · Wo? · Woher? · Wohin?</span><br><span class="dk">Hvad? · Hvor? · Hvorfra? · Hvorhen?</span></div>
+        <div class="gram-example"><span class="de">Wann? · Wie? · Wie viel(e)? · Warum?</span><br><span class="dk">Hvornår? · Hvordan? · Hvor meget/mange? · Hvorfor?</span></div>`}
+    ],
+    b1:[
+      {title:'Adjektivendelser',title_de:'Adjektivdeklination',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Efter der/die/das (svag bøjning)</div>
+        <div class="gram-example"><span class="de">der alte Mann · die alte Frau · das alte Kind</span><br><span class="dk">Nominativ: -e overalt</span></div>
+        <div class="gram-example"><span class="de">den alten Mann · die alte Frau · das alte Kind</span><br><span class="dk">Akkusativ: hankøn får -en</span></div></div>
+        <div class="gram-rule"><div class="gram-rule-title">Uden artikel (stærk bøjning)</div>
+        <div class="gram-example"><span class="de">kalter Kaffee · frische Luft · gutes Brot</span><br><span class="dk">kold kaffe · frisk luft · godt brød</span></div>
+        <div class="gram-tip">Huskeregel: artiklen og adjektivet må ikke begge have den stærke endelse!</div></div>`},
+      {title:'Bisætninger — verb til sidst',title_de:'Nebensätze',body:`
+        <div class="gram-rule"><div class="gram-rule-title">I bisætninger går verbet til sidst</div>
+        <div class="gram-example"><span class="de">Ich weiß, dass er kommt.</span><br><span class="dk">Jeg ved, at han kommer. (at = dass)</span></div>
+        <div class="gram-example"><span class="de">Ich bin müde, weil ich nicht geschlafen habe.</span><br><span class="dk">Jeg er træt, fordi jeg ikke har sovet. (fordi = weil)</span></div>
+        <div class="gram-example"><span class="de">Wenn es regnet, bleibe ich zu Hause.</span><br><span class="dk">Når/hvis det regner, bliver jeg hjemme. (hvis/når = wenn)</span></div>
+        <div class="gram-example"><span class="de">Obwohl es kalt ist, gehe ich raus.</span><br><span class="dk">Selvom det er koldt, går jeg ud. (selvom = obwohl)</span></div></div>`},
+      {title:'Konjunktiv II — hypotetisk/høflig',title_de:'Konjunktiv II',body:`
+        <div class="gram-example"><span class="de">Ich würde gern kommen.</span><br><span class="dk">Jeg ville gerne komme.</span></div>
+        <div class="gram-example"><span class="de">Könntest du mir helfen?</span><br><span class="dk">Kunne du hjælpe mig?</span></div>
+        <div class="gram-example"><span class="de">Wenn ich reich wäre, würde ich reisen.</span><br><span class="dk">Hvis jeg var rig, ville jeg rejse.</span></div>
+        <div class="gram-tip">würde + infinitiv er den nemmeste form. wäre (was), hätte (had), könnte (could), müsste (should)</div>`}
+    ],
+    b2:[
+      {title:'Passiv — werden + Partizip II',title_de:'Passiv',body:`
+        <div class="gram-example"><span class="de">Das Buch wird gelesen.</span><br><span class="dk">Bogen bliver læst. (nutid)</span></div>
+        <div class="gram-example"><span class="de">Das Haus wurde gebaut.</span><br><span class="dk">Huset blev bygget. (datid)</span></div>
+        <div class="gram-example"><span class="de">Das Essen ist gekocht worden.</span><br><span class="dk">Maden er blevet kogt. (perfekt)</span></div>
+        <div class="gram-tip">Nutid: wird + Partizip · Datid: wurde + Partizip · Perfekt: ist + Partizip + worden</div>`},
+      {title:'Relativsætninger',title_de:'Relativsätze',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Relativpronomen bøjes som der/die/das</div>
+        <div class="gram-example"><span class="de">Der Mann, der dort steht, ist mein Freund.</span><br><span class="dk">Manden, der står dér, er min ven.</span></div>
+        <div class="gram-example"><span class="de">Die Frau, die ich kenne, heißt Lisa.</span><br><span class="dk">Kvinden, som jeg kender, hedder Lisa.</span></div>
+        <div class="gram-example"><span class="de">Das Buch, das ich lese, ist interessant.</span><br><span class="dk">Bogen, som jeg læser, er interessant.</span></div>
+        <div class="gram-tip">Verbet i relativsætningen går til sidst!</div></div>`},
+      {title:'Infinitiv med zu',title_de:'Infinitiv mit zu',body:`
+        <div class="gram-example"><span class="de">Ich versuche, Deutsch zu lernen.</span><br><span class="dk">Jeg forsøger at lære tysk.</span></div>
+        <div class="gram-example"><span class="de">Es ist schön, dich zu sehen.</span><br><span class="dk">Det er dejligt at se dig.</span></div>
+        <div class="gram-example"><span class="de">Ich habe keine Zeit, das zu machen.</span><br><span class="dk">Jeg har ingen tid til at gøre det.</span></div>
+        <div class="gram-tip">Nach Modal­verben KEIN zu: Ich muss gehen. (ikke: zu gehen)</div>`}
+    ]
+  },
+  dk:{
+    a1:[
+      {title:'En / et — genus',title_de:'En / et — Geschlecht',body:`
+        <div class="gram-rule"><div class="gram-rule-title">To køn: utrum (en) og neutrum (et)</div>
+        <div class="gram-rule-text">Ca. 75% af danske ord er <strong>en</strong>-ord, ca. 25% er <strong>et</strong>-ord. Man skal lære dem udenad — ligesom der/die/das på tysk!</div>
+        <div class="gram-example"><span class="de">en mand, en kvinde, en bil, en hund, en dag</span><br><span class="dk">ein Mann, eine Frau, ein Auto, ein Hund, ein Tag</span></div>
+        <div class="gram-example"><span class="de">et hus, et barn, et bord, et æg, et land</span><br><span class="dk">ein Haus, ein Kind, ein Tisch, ein Ei, ein Land</span></div>
+        <div class="gram-tip">Ubestemt artikel: en mand / et hus. Bestemt = suffiks (se næste afsnit)</div></div>`},
+      {title:'Bestemt form — suffikset -en/-et',title_de:'Bestimmter Artikel als Suffix',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Dansk sætter artiklen bag på!</div>
+        <div class="gram-rule-text">Bestemt artikel er et suffiks (hæftes bag på): <strong>-en</strong> (en-ord) og <strong>-et</strong> (et-ord).</div>
+        <div class="gram-example"><span class="de">en mand → manden</span><br><span class="dk">ein Mann → der Mann</span></div>
+        <div class="gram-example"><span class="de">et hus → huset</span><br><span class="dk">ein Haus → das Haus</span></div>
+        <div class="gram-example"><span class="de">Flertallet: mænd → mændene · huse → husene</span><br><span class="dk">Plural: Männer → die Männer</span></div>
+        <div class="gram-tip">Hvis et ord slutter på vokal tilføjer man -n/-t: en kaffe → kaffen / et æble → æblet</div></div>`},
+      {title:'Verber — nemt!',title_de:'Verben — einfach!',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Dansk bøjer IKKE verber efter person</div>
+        <div class="gram-rule-text">Alle personer = samme form! (Meget nemmere end tysk!)</div>
+        <div class="gram-example"><span class="de">jeg spiser · du spiser · han/hun spiser</span><br><span class="dk">ich esse · du isst · er/sie isst</span></div>
+        <div class="gram-example"><span class="de">vi spiser · I spiser · de spiser</span><br><span class="dk">wir essen · ihr esst · sie essen</span></div>
+        <div class="gram-tip">Nutid: stamme + -er: spise→spiser, gå→går, hedde→hedder, have→har, være→er</div></div>`},
+      {title:'Ikke — nægtelse',title_de:'Negation: ikke',body:`
+        <div class="gram-rule-text">Nægtelse: <strong>ikke</strong> placeres efter verbet i hovedsætning.</div>
+        <div class="gram-example"><span class="de">Jeg er ikke træt.</span><br><span class="dk">Ich bin nicht müde.</span></div>
+        <div class="gram-example"><span class="de">Jeg forstår ikke.</span><br><span class="dk">Ich verstehe nicht.</span></div>
+        <div class="gram-tip">I bisætning rykker "ikke" foran verbet: Jeg ved, at han ikke kommer.</div>`}
+    ],
+    a2:[
+      {title:'Datid — fortid',title_de:'Vergangenheit',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Svage verber: -ede / -te</div>
+        <div class="gram-example"><span class="de">spise → spiste · elske → elskede · bo → boede</span><br><span class="dk">essen → aß · lieben → liebte · wohnen → wohnte</span></div></div>
+        <div class="gram-rule"><div class="gram-rule-title">Stærke verber (uregelmæssige) — de vigtigste</div>
+        <div class="gram-example"><span class="de">at gå → gik · at komme → kom · at se → så</span><br><span class="dk">gehen→ging · kommen→kam · sehen→sah</span></div>
+        <div class="gram-example"><span class="de">at være → var · at have → havde · at give → gav</span><br><span class="dk">sein→war · haben→hatte · geben→gab</span></div>
+        <div class="gram-tip">Perfektum: have/være + participium: Jeg har spist. Jeg er gået.</div></div>`},
+      {title:'Flertal',title_de:'Plural',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Flertalsendelser</div>
+        <div class="gram-example"><span class="de">-er: en hund → hunde · en bil → biler · en stol → stole</span></div>
+        <div class="gram-example"><span class="de">-e: et hus → huse · et bord → borde</span></div>
+        <div class="gram-example"><span class="de">Uændret: et tal → tal · et dyr → dyr</span></div>
+        <div class="gram-example"><span class="de">Vokalskifte: en mand → mænd · en fod → fødder · et barn → børn</span></div>
+        <div class="gram-tip">Bestemt flertal: -erne (en) / -ene (et): hundene, husene</div></div>`},
+      {title:'Adjektiv — bøjning',title_de:'Adjektivdeklination',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Tre former</div>
+        <div class="gram-example"><span class="de">en stor mand (en-ord)</span><br><span class="dk">ein großer Mann</span></div>
+        <div class="gram-example"><span class="de">et stort hus (et-ord: +t)</span><br><span class="dk">ein großes Haus</span></div>
+        <div class="gram-example"><span class="de">store mænd/huse (flertal: +e)</span><br><span class="dk">große Männer/Häuser</span></div>
+        <div class="gram-example"><span class="de">den/det store mand/hus (bestemt: altid +e)</span><br><span class="dk">der/das große Mann/Haus</span></div>
+        <div class="gram-tip">Huskeregel: ubestemt + et-ord = +t · bestemt = altid +e · flertal = +e</div></div>`},
+      {title:'Spørgsmål & hv-ord',title_de:'Fragewörter',body:`
+        <div class="gram-example"><span class="de">hvad · hvem · hvor · hvornår · hvordan · hvorfor</span><br><span class="dk">was · wer · wo · wann · wie · warum</span></div>
+        <div class="gram-example"><span class="de">Hvad hedder du? · Hvem er du? · Hvor bor du?</span><br><span class="dk">Wie heißt du? · Wer bist du? · Wo wohnst du?</span></div>
+        <div class="gram-tip">Spørgsmålsordstilling: hv-ord + verbum + subjekt: Hvad spiser du?</div>`}
+    ],
+    b1:[
+      {title:'V2-reglen — verbet er ALTID nr. 2',title_de:'V2-Regel',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Verbet er altid den 2. "blok" i dansk hovedsætning</div>
+        <div class="gram-example"><span class="de">Jeg spiser æbler. → I dag spiser jeg æbler. → Æbler spiser jeg i dag.</span><br><span class="dk">Ich esse Äpfel. → Heute esse ich Äpfel.</span></div>
+        <div class="gram-tip">Når sætningen ikke starter med subjektet, bytter subjekt og verbum plads — men verbet er stadig nr. 2!</div></div>`},
+      {title:'Bisætningsordstilling',title_de:'Nebensatz-Wortstellung',body:`
+        <div class="gram-rule"><div class="gram-rule-title">"Ikke" rykker foran verbet i bisætninger</div>
+        <div class="gram-example"><span class="de">Han kommer ikke. (hoved) → Jeg ved, at han ikke kommer. (bi)</span><br><span class="dk">Er kommt nicht. → Ich weiß, dass er nicht kommt.</span></div>
+        <div class="gram-example"><span class="de">at (dass) · fordi (weil) · hvis (wenn/falls) · selvom (obwohl) · da (da/als)</span></div></div>`},
+      {title:'Sammensatte ord',title_de:'Komposita',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Dansk (og tysk!) elsker at sætte ord sammen</div>
+        <div class="gram-example"><span class="de">tog + station = togstation</span><br><span class="dk">Zug + Bahnhof = Bahnhof (men sammensætning er samme princip)</span></div>
+        <div class="gram-example"><span class="de">mad + pakke = madpakke · arbejds + plads = arbejdsplads</span></div>
+        <div class="gram-tip">Det sidste ord bestemmer køn: en togstation (station=en-ord)</div></div>`},
+      {title:'Passiv',title_de:'Passiv',body:`
+        <div class="gram-example"><span class="de">Huset bygges. (nutid, -es)</span><br><span class="dk">Das Haus wird gebaut.</span></div>
+        <div class="gram-example"><span class="de">Huset blev bygget. (datid, blive + participium)</span><br><span class="dk">Das Haus wurde gebaut.</span></div>
+        <div class="gram-example"><span class="de">Huset er blevet bygget. (perfektum)</span><br><span class="dk">Das Haus ist gebaut worden.</span></div>`}
+    ],
+    b2:[
+      {title:'Modalverber — nuancer',title_de:'Modalverben — Nuancen',body:`
+        <div class="gram-example"><span class="de">vil: Jeg vil gerne have en kaffe. (ønske/fremtid)</span><br><span class="dk">möchte / wollen</span></div>
+        <div class="gram-example"><span class="de">skal: Jeg skal arbejde i morgen. (pligt/fremtid)</span><br><span class="dk">muss / soll</span></div>
+        <div class="gram-example"><span class="de">kan: Jeg kan svømme. (evne) / Kan du hjælpe? (anmodning)</span><br><span class="dk">kann / könntest du</span></div>
+        <div class="gram-example"><span class="de">må: Du må ikke ryge her. (forbud) / Må jeg...? (tilladelse)</span><br><span class="dk">darf nicht / darf ich</span></div>
+        <div class="gram-example"><span class="de">bør: Du bør sove mere. (råd)</span><br><span class="dk">solltest</span></div>`},
+      {title:'Stød — den unikke danske lyd',title_de:'Stød — einzigartiger dänischer Laut',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Stød er en slags "knæk" i stemmen — som en kredsløbsafbrydelse</div>
+        <div class="gram-rule-text">Stød kan ændre betydning af ord!</div>
+        <div class="gram-example"><span class="de">hun [uden stød] = "hun" (sie)</span></div>
+        <div class="gram-example"><span class="de">hund' [med stød] = "hund" (Hund)</span></div>
+        <div class="gram-example"><span class="de">mor [uden stød] = "mor" (Mutter)</span></div>
+        <div class="gram-example"><span class="de">mord' [med stød] = "mord" (Mord)</span></div>
+        <div class="gram-tip">Stød læres bedst ved at lytte og efterligne. Det er svært at beskrive skriftligt!</div></div>`},
+      {title:'Topikalisering & fremhævning',title_de:'Topikalisierung',body:`
+        <div class="gram-rule"><div class="gram-rule-title">Et hvert led kan sættes forrest for at fremhæve det</div>
+        <div class="gram-example"><span class="de">Det er Lisa, der vandt. (ikke Raffi)</span><br><span class="dk">Lisa hat gewonnen. (betont)</span></div>
+        <div class="gram-example"><span class="de">Det var i går, at det skete.</span><br><span class="dk">Es war gestern, dass es passierte.</span></div>
+        <div class="gram-tip">Disse "kløvningskonstruktioner" er meget typiske for dansk talesprog!</div></div>`}
+    ]
+  }
 };
 
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function rand(arr){return arr[Math.floor(Math.random()*arr.length)];}
-function getPool(){
-  let pool=[];
-  if(G.selectedCats.includes('mixed')) return shuffle(V.mixed);
-  G.selectedCats.forEach(c=>{if(V[c]) pool=[...pool,...V[c]];});
-  return shuffle(pool.length?pool:V.mixed);
+// ── Grammar UI ────────────────────────────────────────────
+let gramLang='de',gramLevel='a1';
+function setGramLang(l){
+  gramLang=l;
+  document.getElementById('gt-de').className='lang-tab'+(l==='de'?' active':'');
+  document.getElementById('gt-dk').className='lang-tab'+(l==='dk'?' active':'');
+  renderGram();
 }
-
+function setGramLevel(l){
+  gramLevel=l;
+  ['a1','a2','b1','b2'].forEach(x=>{document.getElementById('gl-'+x).className='level-tab'+(l===x?' active':'');});
+  renderGram();
+}
+function renderGram(){
+  const sections=GRAM[gramLang][gramLevel]||[];
+  const cont=document.getElementById('gram-content');if(!cont)return;
+  cont.innerHTML=sections.map((s,i)=>`
+    <div class="gram-section" id="gs-${i}">
+      <div class="gram-section-head" onclick="toggleGram(${i})">
+        <div><div class="gram-section-title">${s.title}</div><div class="gram-section-de">${s.title_de}</div></div>
+        <span class="gram-section-arrow">▼</span>
+      </div>
+      <div class="gram-body">${s.body}</div>
+    </div>`).join('');
+  // Auto-open first
+  const first=document.getElementById('gs-0');
+  if(first)first.classList.add('open');
+}
+function toggleGram(i){
+  const el=document.getElementById('gs-'+i);
+  if(el)el.classList.toggle('open');
+}
+// ── Game state & helpers ──────────────────────────────────
+const G={playMode:'together',soloPlayer:'lisa',p1:'Lisa',p2:'Raffi',p1score:0,p2score:0,soloScore:0,currentPlayer:1,questions:[],qIdx:0,totalQ:10,selectedCats:['mixed'],roundsChoice:5,wordTiles:[],wordPlaced:[]};
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function escQ(s){return(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');}
+function getVocabPool(){
+  if(G.selectedCats.includes('mixed'))return shuffle(V.mixed);
+  const cats=['food','everyday','nature','travel','body','emotions','numbers','shopping'];
+  let p=[];G.selectedCats.forEach(c=>{if(cats.includes(c)&&V[c])p=[...p,...V[c]];});
+  return shuffle(p.length?p:V.mixed);
+}
 function setMode(m){
-  G.playMode=m;
-  showScreen('screen-home');
-  const badge=document.getElementById('mode-badge');
-  const logo=document.getElementById('home-logo');
-  const tag=document.getElementById('home-tagline');
+  G.playMode=m;showScreen('screen-home');
+  const badge=document.getElementById('mode-badge'),tag=document.getElementById('home-tagline');
   if(m==='together'){
-    badge.textContent='🤝 Sammentilstand';badge.className='logo-badge together';
+    badge.textContent='🤝 Sammen · Zusammen';badge.className='logo-badge together';
     document.getElementById('together-names').style.display='';
     document.getElementById('solo-who').style.display='none';
     tag.textContent='Skiftes om — send telefonen videre';
   }else{
-    badge.textContent='📱 Alenetilstand';badge.className='logo-badge apart';
+    badge.textContent='📱 Alene · Allein';badge.className='logo-badge apart';
     document.getElementById('solo-who').style.display='';
     document.getElementById('together-names').style.display='none';
-    tag.textContent='Solo — spil på dit niveau';
+    tag.textContent='Solo på dit niveau · Solo auf deinem Niveau';
   }
 }
 function selectSoloPlayer(p){
@@ -835,380 +899,218 @@ function selectSoloPlayer(p){
   document.getElementById('solo-bf').className='solo-card'+(p==='bf'?' selected':'');
 }
 function toggleCat(cat,el){
-  if(cat==='mixed'){
-    G.selectedCats=['mixed'];
-    document.querySelectorAll('.game-card').forEach(c=>c.classList.remove('selected'));
-    document.getElementById('gc-mixed').classList.add('selected');
-    return;
-  }
-  document.getElementById('gc-mixed').classList.remove('selected');
-  G.selectedCats=G.selectedCats.filter(c=>c!=='mixed');
-  if(G.selectedCats.includes(cat)){
-    G.selectedCats=G.selectedCats.filter(c=>c!==cat);
-    el.classList.remove('selected');
-    if(G.selectedCats.length===0){G.selectedCats=['mixed'];document.getElementById('gc-mixed').classList.add('selected');}
-  }else{
-    G.selectedCats.push(cat);
-    el.classList.add('selected');
-  }
+  if(cat==='mixed'){G.selectedCats=['mixed'];document.querySelectorAll('.game-card').forEach(c=>c.classList.remove('selected'));document.getElementById('gc-mixed').classList.add('selected');return;}
+  document.getElementById('gc-mixed').classList.remove('selected');G.selectedCats=G.selectedCats.filter(c=>c!=='mixed');
+  if(G.selectedCats.includes(cat)){G.selectedCats=G.selectedCats.filter(c=>c!==cat);el.classList.remove('selected');if(!G.selectedCats.length){G.selectedCats=['mixed'];document.getElementById('gc-mixed').classList.add('selected');}}
+  else{G.selectedCats.push(cat);el.classList.add('selected');}
 }
-function setRounds(n,el){
-  G.roundsChoice=n;
-  document.querySelectorAll('.rounds-btn').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function goHome(){
-  showScreen('screen-mode');
-  document.getElementById('nav-home').classList.add('active');
-  document.getElementById('nav-cal').classList.remove('active');
-}
+function setRounds(n,el){G.roundsChoice=n;document.querySelectorAll('.rounds-btn').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');}
+function goHome(){showScreen('screen-mode');}
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='none';});
-  const s=document.getElementById(id);
-  if(s){s.style.display='flex';setTimeout(()=>s.classList.add('active'),10);}
+  const s=document.getElementById(id);if(s){s.style.display='flex';setTimeout(()=>s.classList.add('active'),10);}
   document.getElementById('nav-cal').classList.toggle('active',id==='screen-calendar');
   document.getElementById('nav-home').classList.toggle('active',id==='screen-home'||id==='screen-mode');
+  document.getElementById('nav-gram').classList.toggle('active',id==='screen-grammar');
+  if(id==='screen-grammar')renderGram();
 }
 
+// ── Build questions ───────────────────────────────────────
+function buildQuestions(){
+  G.questions=[];const n=G.roundsChoice,isBf=G.soloPlayer==='bf';
+  if(G.playMode==='together'){
+    const pool=getVocabPool();
+    for(let i=0;i<n;i++){const player=(i%2===0)?1:2;G.questions.push({type:'vocab',player,item:pool[i%pool.length],dir:player===1?'dk2de':'de2dk'});}
+  }else{
+    const useMix=G.selectedCats.includes('mixed');
+    const useVocab=G.selectedCats.some(c=>['mixed','food','everyday','nature','travel','body','emotions','numbers','shopping'].includes(c));
+    const useSent=useMix||G.selectedCats.includes('sentences');
+    const useFill=useMix||G.selectedCats.includes('fillin');
+    const useWO=useMix||G.selectedCats.includes('wordorder');
+    let pool=[];
+    if(useVocab){const vp=getVocabPool();vp.slice(0,n*2).forEach(item=>pool.push({type:'vocab',player:1,item,dir:isBf?'de2dk':'dk2de'}));}
+    if(useSent)shuffle(SENT).forEach(s=>pool.push({type:'match',player:1,sent:s,dir:isBf?'de2dk':'dk2de'}));
+    if(useFill)shuffle(FILL).forEach(f=>pool.push({type:'fill',player:1,item:f}));
+    if(useWO)shuffle(WORDORDER).forEach(w=>pool.push({type:'wordorder',player:1,item:w}));
+    G.questions=shuffle(pool).slice(0,n);
+    if(!G.questions.length)getVocabPool().slice(0,n).forEach(item=>G.questions.push({type:'vocab',player:1,item,dir:'dk2de'}));
+  }
+  G.totalQ=G.questions.length;
+}
+
+// ── Start & scoreboards ───────────────────────────────────
 function startGame(){
   G.p1=document.getElementById('p1-name')?.value||'Lisa';
-  G.p2=document.getElementById('p2-name')?.value||'Mads';
-  const solN1=document.getElementById('solo-name-lisa')?.value;
-  const solN2=document.getElementById('solo-name-bf')?.value;
-  if(solN1) localStorage.setItem('soloNameLisa',solN1);
-  if(solN2) localStorage.setItem('soloNameBf',solN2);
+  G.p2=document.getElementById('p2-name')?.value||'Raffi';
+  const ln=document.getElementById('solo-name-lisa')?.value,bn=document.getElementById('solo-name-bf')?.value;
+  if(ln)localStorage.setItem('soloNameLisa',ln);if(bn)localStorage.setItem('soloNameBf',bn);
   G.p1score=0;G.p2score=0;G.soloScore=0;G.currentPlayer=1;G.qIdx=0;
   buildQuestions();
-  G.totalQ=G.questions.length;
-  if(G.playMode==='together'){
-    showPassScreen(1);
-  }else{
-    showScreen('screen-game');
-    setupScoreboardSolo();
-    showQuestion();
-  }
+  if(G.playMode==='together')showPassScreen(1);
+  else{showScreen('screen-game');setupScoreboardSolo();showQuestion();}
 }
-function buildQuestions(){
-  G.questions=[];
-  const n=G.roundsChoice;
-  const isTogether=G.playMode==='together';
-  const isBf=G.soloPlayer==='bf';
-  const hasVocab=G.selectedCats.some(c=>['mixed','food','everyday','nature','travel','body','emotions','numbers','shopping'].includes(c));
-  const hasSent=G.selectedCats.includes('sentences');
-  const hasFill=G.selectedCats.includes('fillin');
-  const hasWO=G.selectedCats.includes('wordorder');
-
-  if(isTogether){
-    // Alternate questions between players
-    const pool=getPool();
-    for(let i=0;i<n;i++){
-      const player=(i%2===0)?1:2;
-      // player 1 (lisa) = DK→DE, player 2 (bf) = DE→DK
-      const item=pool[i%pool.length];
-      G.questions.push({type:'vocab',player,item,dir:player===1?'dk2de':'de2dk'});
-    }
-  }else{
-    // Solo mode
-    const pool=getPool();
-    let vocabItems=[];
-    // Level-based: bf gets A1 (simpler), lisa gets A1+A2
-    for(let i=0;i<Math.min(n,pool.length);i++) vocabItems.push(pool[i]);
-    if(hasVocab||G.selectedCats.includes('mixed')){
-      vocabItems.forEach(item=>{
-        G.questions.push({type:'vocab',player:1,item,dir:isBf?'de2dk':'dk2de'});
-      });
-    }
-    // Add sentence types if selected
-    if(hasSent) shuffle(SENT).slice(0,Math.min(5,n)).forEach(s=>G.questions.push({type:'match',player:1,sent:s}));
-    if(hasFill) shuffle(FILL).slice(0,Math.min(4,n)).forEach(f=>G.questions.push({type:'fill',player:1,item:f}));
-    if(hasWO) shuffle(WORDORDER).slice(0,Math.min(3,n)).forEach(w=>G.questions.push({type:'wordorder',player:1,item:w}));
-    G.questions=shuffle(G.questions).slice(0,n);
-    G.totalQ=G.questions.length||n;
-  }
-  G.questions=shuffle(G.questions);
-}
-
 function showPassScreen(player){
-  const name=player===1?G.p1:G.p2;
-  const flag=player===1?'🇩🇰':'🇩🇪';
-  const learningLang=player===1?'tysk':'dansk';
+  const name=player===1?G.p1:G.p2,flag=player===1?'🇩🇰':'🇩🇪';
   document.getElementById('pass-flag').textContent=flag;
   document.getElementById('pass-name').textContent=name;
-  document.getElementById('pass-sub').textContent='Du svarer på '+learningLang;
-  // Pronunciation tip for previous answer
-  if(G.qIdx>0){
-    const prev=G.questions[G.qIdx-1];
-    if(prev&&prev.item){
-      document.getElementById('pass-tip').innerHTML=`<strong>Udtale-tip fra forrige runde</strong><span class="pronun-word">${prev.item.dk} = ${prev.item.de}</span><span class="pronun-tip">${prev.item.pron}</span><span class="pronun-partner">💬 ${prev.item.tip}</span>`;
-    }else{document.getElementById('pass-tip').textContent='';}
-  }else{
-    document.getElementById('pass-tip').innerHTML='<strong>Tip</strong> Hjælp hinanden med udtale efter hvert svar!';
-  }
+  document.getElementById('pass-name-de').textContent=name;
+  document.getElementById('pass-sub').textContent=name+(player===1?' svarer på tysk · antwortet auf Deutsch':' svarer på dansk · antwortet auf Dänisch');
+  if(G.qIdx>0){const prev=G.questions[G.qIdx-1];if(prev?.item){document.getElementById('pass-tip').innerHTML=`<strong>🔊 Udtale-tip · Aussprache</strong><span style="display:block;margin:.2rem 0;font-weight:600;color:var(--teal)">${prev.item.dk} = ${prev.item.de}</span><span style="font-size:.73rem">${prev.item.pron} — ${prev.item.tip}</span>`;}}
+  else document.getElementById('pass-tip').innerHTML='<strong>Tip</strong>Hjælp hinanden med udtale! · Helft euch mit der Aussprache!';
   showScreen('screen-pass');
 }
-
-function startTurn(){
-  showScreen('screen-game');
-  setupScoreboardTogether();
-  showQuestion();
-}
+function startTurn(){showScreen('screen-game');setupScoreboardTogether();showQuestion();}
 function setupScoreboardTogether(){
   document.getElementById('scoreboard-together').style.display='';
   document.getElementById('scoreboard-solo').style.display='none';
-  document.getElementById('sc1-name').textContent=G.p1;
-  document.getElementById('sc2-name').textContent=G.p2;
-  document.getElementById('sc1-flag').textContent='🇩🇰';
-  document.getElementById('sc2-flag').textContent='🇩🇪';
-  document.getElementById('sc1-score').textContent=G.p1score;
-  document.getElementById('sc2-score').textContent=G.p2score;
+  document.getElementById('sc1-name').textContent=G.p1;document.getElementById('sc2-name').textContent=G.p2;
+  document.getElementById('sc1-score').textContent=G.p1score;document.getElementById('sc2-score').textContent=G.p2score;
   updateActivePlayer();
 }
 function setupScoreboardSolo(){
   document.getElementById('scoreboard-together').style.display='none';
   document.getElementById('scoreboard-solo').style.display='';
-  const isBf=G.soloPlayer==='bf';
-  const name=isBf?(localStorage.getItem('soloNameBf')||'Kæresten'):(localStorage.getItem('soloNameLisa')||'Lisa');
+  const isBf=G.soloPlayer==='bf',name=isBf?(localStorage.getItem('soloNameBf')||'Raffi'):(localStorage.getItem('soloNameLisa')||'Lisa');
   document.getElementById('solo-flag-sb').textContent=isBf?'🇩🇪':'🇩🇰';
   document.getElementById('solo-name-sb').textContent=name;
   document.getElementById('solo-score-sb').textContent=G.soloScore;
 }
 function updateActivePlayer(){
-  const q=G.questions[G.qIdx];
-  const p=q?q.player:G.currentPlayer;
+  const q=G.questions[G.qIdx];const p=q?q.player:1;
   document.getElementById('sc1').className='score-card'+(p===1?' active-player':'');
   document.getElementById('sc2').className='score-card'+(p===2?' active-player':'');
   document.getElementById('sc1-score').textContent=G.p1score;
   document.getElementById('sc2-score').textContent=G.p2score;
 }
 
+// ── Questions ─────────────────────────────────────────────
 function showQuestion(){
   if(G.qIdx>=G.questions.length){showEnd();return;}
-  const q=G.questions[G.qIdx];
-  const card=document.getElementById('q-card');
+  const q=G.questions[G.qIdx],card=document.getElementById('q-card');
   card.className='q-card card-enter';
-  document.getElementById('prog-info').textContent='Spørgsmål '+(G.qIdx+1)+' af '+G.totalQ;
+  document.getElementById('prog-info').textContent='Spørgsmål '+(G.qIdx+1)+' af '+G.totalQ+' · Frage '+(G.qIdx+1)+' von '+G.totalQ;
   document.getElementById('prog-fill').style.width=((G.qIdx/G.totalQ)*100)+'%';
-  if(q.type==='vocab') renderVocabQ(q,card);
-  else if(q.type==='match') renderMatchQ(q,card);
-  else if(q.type==='fill') renderFillQ(q,card);
-  else if(q.type==='wordorder') renderWordOrderQ(q,card);
-  if(G.playMode==='together') updateActivePlayer();
+  if(q.type==='vocab')renderVocabQ(q,card);
+  else if(q.type==='match')renderMatchQ(q,card);
+  else if(q.type==='fill')renderFillQ(q,card);
+  else if(q.type==='wordorder')renderWordOrderQ(q,card);
+  if(G.playMode==='together')updateActivePlayer();
 }
-
 function renderVocabQ(q,card){
-  const item=q.item;
-  const isBf=G.soloPlayer==='bf';
-  const isDk2De=q.dir==='dk2de';
-  const question=isDk2De?item.dk:item.de;
-  const answer=isDk2De?item.de:item.dk;
-  // Build 3 wrong options from pool
-  const pool=V.mixed.filter(x=>x!==item);
-  const wrongs=shuffle(pool).slice(0,3).map(x=>isDk2De?x.de:x.dk);
+  const item=q.item,isDk=(q.dir==='dk2de'),question=isDk?item.dk:item.de,answer=isDk?item.de:item.dk;
+  const wrongs=shuffle(V.mixed.filter(x=>x!==item)).slice(0,3).map(x=>isDk?x.de:x.dk);
   const opts=shuffle([answer,...wrongs]);
-  const dirLabel=isDk2De?'🇩🇰 → 🇩🇪':'🇩🇪 → 🇩🇰';
-  const playerLabel=G.playMode==='together'?(q.player===1?G.p1:G.p2):'';
-  const pronunHTML=G.playMode==='together'?`
-    <div class="pronun" id="pronun-box">
-      <div class="pronun-title">🔊 Udtale</div>
-      <div class="pronun-word">${item.de}</div>
-      <div class="pronun-tip">${item.pron}</div>
-      <div class="pronun-partner">💬 ${item.tip}</div>
-    </div>`:'<div class="pronun" id="pronun-box" style="display:none"></div>';
-  card.innerHTML=`
-    ${playerLabel?`<div class="whose-turn">${playerLabel}s tur</div>`:''}
-    <div class="dir-badge">${dirLabel}</div>
-    <div class="type-badge vocab">Gloser</div>
-    <div class="q-word">${question}</div>
-    <div class="q-hint">${isDk2De?'Hvad er det på tysk?':'Hvad er det på dansk?'}</div>
-    <div class="opts" id="opts">
-      ${opts.map(o=>`<button class="opt" onclick="checkVocab(this,'${escQ(o)}','${escQ(answer)}')">${o}</button>`).join('')}
-    </div>
-    ${pronunHTML}
-    <div class="feedback" id="feedback"></div>
-    <button class="next-btn" id="next-btn" onclick="nextQ()">Næste →</button>
-  `;
+  const dirLabel=isDk?'🇩🇰 dansk → 🇩🇪 tysk':'🇩🇪 Deutsch → 🇩🇰 dansk';
+  const hintDk=isDk?'Hvad er det på tysk?':'Hvad er det på dansk?';
+  const hintDe=isDk?'Was bedeutet das auf Deutsch?':'Was bedeutet das auf Dänisch?';
+  const pLabel=G.playMode==='together'?(q.player===1?G.p1:G.p2):'';
+  const pronBox=G.playMode==='together'?`<div class="pronun" id="pronun-box"><div class="pronun-title">🔊 Udtale · Aussprache</div><div class="pronun-word">${item.de}</div><div class="pronun-tip">${item.pron}</div><div class="pronun-partner">💬 ${item.tip}</div></div>`:'';
+  card.innerHTML=`${pLabel?`<div class="whose-turn">${pLabel}s tur · ${pLabel} ist dran</div>`:''}<div class="dir-badge">${dirLabel}</div><div class="type-badge vocab">Gloser · Vokabeln</div><div class="q-word">${question}</div><div class="q-hint">${hintDk}<span class="de">${hintDe}</span></div><div class="opts" id="opts">${opts.map(o=>`<button class="opt" onclick="checkOpt(this,'${escQ(o)}','${escQ(answer)}')">${o}</button>`).join('')}</div>${pronBox}<div class="feedback" id="feedback"></div><button class="next-btn" id="next-btn" onclick="nextQ()">Næste · Weiter →</button>`;
 }
-function escQ(s){return s.replace(/'/g,"\\'").replace(/"/g,'&quot;');}
-
-function checkVocab(btn,chosen,correct){
-  document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
-  const ok=chosen===correct;
-  btn.classList.add(ok?'correct':'wrong');
-  if(!ok) document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===correct.trim()) b.classList.add('correct');});
-  score(ok);
-  const fb=document.getElementById('feedback');
-  fb.textContent=ok?'✅ Rigtigt! ':'❌ Forkert — '+correct;
-  fb.className='feedback show '+(ok?'ok':'bad');
-  if(G.playMode==='together') document.getElementById('pronun-box')?.classList.add('show');
-  document.getElementById('next-btn').classList.add('show');
-}
-
 function renderMatchQ(q,card){
-  const sent=q.sent;
-  // Show DK sentence, pick matching DE from options
-  const wrongs=shuffle(SENT.filter(s=>s!==sent)).slice(0,3).map(s=>s.de);
-  const opts=shuffle([sent.de,...wrongs]);
-  card.innerHTML=`
-    <div class="dir-badge">🇩🇰 → 🇩🇪</div>
-    <div class="type-badge phrase">Sætning</div>
-    <div class="q-sent">${sent.dk}</div>
-    <div class="q-hint">Vælg den rigtige tyske oversættelse</div>
-    <div class="opts" id="opts" style="grid-template-columns:1fr">
-      ${opts.map(o=>`<button class="opt" onclick="checkVocab(this,'${escQ(o)}','${escQ(sent.de)}')">${o}</button>`).join('')}
-    </div>
-    <div class="feedback" id="feedback"></div>
-    <button class="next-btn" id="next-btn" onclick="nextQ()">Næste →</button>
-  `;
+  const s=q.sent,isDk=(q.dir||'dk2de')==='dk2de',question=isDk?s.dk:s.de,answer=isDk?s.de:s.dk;
+  const wrongs=shuffle(SENT.filter(x=>x!==s)).slice(0,3).map(x=>isDk?x.de:x.dk);
+  const opts=shuffle([answer,...wrongs]);
+  const dirLabel=isDk?'🇩🇰 → 🇩🇪':'🇩🇪 → 🇩🇰';
+  card.innerHTML=`<div class="dir-badge">${dirLabel}</div><div class="type-badge phrase">Sætning · Satz</div><div class="q-sent">${question}</div><div class="q-hint">${isDk?'Vælg den rigtige tyske oversættelse:':'Wähle die richtige dänische Übersetzung:'}</div><div class="opts single-col" id="opts">${opts.map(o=>`<button class="opt" onclick="checkOpt(this,'${escQ(o)}','${escQ(answer)}')">${o}</button>`).join('')}</div><div class="feedback" id="feedback"></div><button class="next-btn" id="next-btn" onclick="nextQ()">Næste · Weiter →</button>`;
 }
-
 function renderFillQ(q,card){
-  const item=q.item;
-  const isBf=G.soloPlayer==='bf';
-  const sentDE=item.sent_de.replace('___','<span class="fill-blank">___</span>');
-  const pool=V.mixed.slice(0,20).map(x=>x.de);
-  const wrongs=shuffle(pool.filter(w=>w!==item.answer)).slice(0,3);
+  const item=q.item,sentDE=item.sent_de.replace('___','<span class="fill-blank">___</span>');
+  const wrongs=shuffle(V.mixed.slice(0,40).map(x=>x.de).filter(w=>w!==item.answer)).slice(0,3);
   const opts=shuffle([item.answer,...wrongs]);
-  card.innerHTML=`
-    <div class="dir-badge">🇩🇰 → 🇩🇪</div>
-    <div class="type-badge fill">Udfyld</div>
-    <div class="fill-sent">${item.sent_dk}</div>
-    <div class="q-word" style="font-size:1.4rem">${sentDE}</div>
-    <div class="q-hint">${item.hint}</div>
-    <div class="opts" id="opts">
-      ${opts.map(o=>`<button class="opt" onclick="checkVocab(this,'${escQ(o)}','${escQ(item.answer)}')">${o}</button>`).join('')}
-    </div>
-    <div class="feedback" id="feedback"></div>
-    <button class="next-btn" id="next-btn" onclick="nextQ()">Næste →</button>
-  `;
+  card.innerHTML=`<div class="dir-badge">🇩🇰 → 🇩🇪</div><div class="type-badge fill">Udfyld · Lückentext</div><div class="fill-sent">${item.sent_dk}</div><div class="q-word" style="font-size:1.2rem">${sentDE}</div><div class="q-hint">${item.hint}</div><div class="opts" id="opts">${opts.map(o=>`<button class="opt" onclick="checkOpt(this,'${escQ(o)}','${escQ(item.answer)}')">${o}</button>`).join('')}</div><div class="feedback" id="feedback"></div><button class="next-btn" id="next-btn" onclick="nextQ()">Næste · Weiter →</button>`;
 }
-
 function renderWordOrderQ(q,card){
-  const item=q.item;
-  G.wordTiles=shuffle([...item.words]);
-  G.wordPlaced=[];
-  card.innerHTML=`
-    <div class="dir-badge">🇩🇰 → 🇩🇪</div>
-    <div class="type-badge order">Ordstilling</div>
-    <div class="q-sent">${item.dk}</div>
-    <div class="q-hint">Sæt de tyske ord i den rigtige rækkefølge</div>
-    <div class="wt-label">Klik ord for at placere dem:</div>
-    <div class="wt zone" id="placed-zone">Træk ord herhen...</div>
-    <div class="wt bank" id="word-bank">
-      ${G.wordTiles.map((w,i)=>`<div class="tile" id="tile-${i}" onclick="placeTile(${i},'${escQ(w)}')">${w}</div>`).join('')}
-    </div>
-    <button class="check-btn" id="check-wo" onclick="checkWordOrder('${escQ(item.correct)}')" disabled>Tjek svar</button>
-    <div class="feedback" id="feedback"></div>
-    <button class="next-btn" id="next-btn" onclick="nextQ()">Næste →</button>
-  `;
+  const item=q.item;G.wordTiles=shuffle([...item.words]);G.wordPlaced=[];
+  card.innerHTML=`<div class="dir-badge">🇩🇰 → 🇩🇪</div><div class="type-badge order">Ordstilling · Wortstellung</div><div class="q-sent">${item.dk}</div><div class="q-hint">Sæt de tyske ord i den rigtige rækkefølge · Bringe die deutschen Wörter in die richtige Reihenfolge</div><div class="wt-label">Klik ord for at placere · Wörter anklicken</div><div class="wt zone" id="placed-zone" style="min-height:46px">—</div><div class="wt bank" id="word-bank">${G.wordTiles.map((w,i)=>`<div class="tile" id="tile-${i}" onclick="placeTile(${i},'${escQ(w)}')">${w}</div>`).join('')}</div><button class="check-btn" id="check-wo" onclick="checkWordOrder('${escQ(item.correct)}')" disabled>Tjek svar · Antwort prüfen</button><div class="feedback" id="feedback"></div><button class="next-btn" id="next-btn" onclick="nextQ()">Næste · Weiter →</button>`;
 }
 function placeTile(idx,word){
-  const tile=document.getElementById('tile-'+idx);
-  if(!tile||tile.style.display==='none') return;
-  G.wordPlaced.push(word);
-  tile.style.display='none';
-  const zone=document.getElementById('placed-zone');
-  if(zone.textContent==='Træk ord herhen...') zone.textContent='';
-  const t=document.createElement('div');
-  t.className='tile placed';
-  t.textContent=word;
-  t.onclick=()=>{G.wordPlaced=G.wordPlaced.filter((_,i)=>i!==G.wordPlaced.lastIndexOf(word));t.remove();tile.style.display='';if(!document.getElementById('placed-zone').children.length) document.getElementById('placed-zone').textContent='Træk ord herhen...';document.getElementById('check-wo').disabled=G.wordPlaced.length===0;};
-  zone.appendChild(t);
-  document.getElementById('check-wo').disabled=false;
+  const tile=document.getElementById('tile-'+idx);if(!tile||tile.style.display==='none')return;
+  G.wordPlaced.push(word);tile.style.display='none';
+  const zone=document.getElementById('placed-zone');if(zone.textContent==='—')zone.textContent='';
+  const t=document.createElement('div');t.className='tile placed';t.textContent=word;
+  t.onclick=()=>{let removed=false;G.wordPlaced=G.wordPlaced.filter(w=>{if(!removed&&w===word){removed=true;return false;}return true;});t.remove();tile.style.display='';if(!document.getElementById('placed-zone').children.length)document.getElementById('placed-zone').textContent='—';document.getElementById('check-wo').disabled=G.wordPlaced.length===0;};
+  zone.appendChild(t);document.getElementById('check-wo').disabled=false;
 }
 function checkWordOrder(correct){
-  const attempt=G.wordPlaced.join(' ');
-  const ok=attempt.toLowerCase()===correct.toLowerCase();
-  document.getElementById('check-wo').disabled=true;
-  score(ok);
+  const ok=G.wordPlaced.join(' ').toLowerCase()===correct.toLowerCase();
+  document.getElementById('check-wo').disabled=true;score(ok);
   document.querySelectorAll('#placed-zone .tile').forEach(t=>t.className='tile placed '+(ok?'ct':'wt2'));
-  const fb=document.getElementById('feedback');
-  fb.textContent=ok?'✅ Perfekt! ':'❌ Korrekt: '+correct;
-  fb.className='feedback show '+(ok?'ok':'bad');
+  const fb=document.getElementById('feedback');fb.textContent=ok?'✅ Perfekt! ':'❌ Korrekt: '+correct;fb.className='feedback show '+(ok?'ok':'bad');
   document.getElementById('next-btn').classList.add('show');
 }
-
-function score(ok){
-  if(!ok) return;
-  const q=G.questions[G.qIdx];
-  if(G.playMode==='together'){
-    if(q&&q.player===1) G.p1score++;else G.p2score++;
-    updateActivePlayer();
-  }else{
-    G.soloScore++;
-    document.getElementById('solo-score-sb').textContent=G.soloScore;
-  }
+function checkOpt(btn,chosen,correct){
+  document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+  const ok=chosen===correct;btn.classList.add(ok?'correct':'wrong');
+  if(!ok)document.querySelectorAll('.opt').forEach(b=>{if(b.textContent.trim()===correct.trim())b.classList.add('correct');});
+  score(ok);
+  const fb=document.getElementById('feedback');fb.textContent=ok?'✅ Rigtigt! · Richtig! ':'❌ Forkert · Falsch — '+correct;fb.className='feedback show '+(ok?'ok':'bad');
+  if(G.playMode==='together')document.getElementById('pronun-box')?.classList.add('show');
+  document.getElementById('next-btn').classList.add('show');
 }
-
+function score(ok){
+  if(!ok)return;const q=G.questions[G.qIdx];
+  if(G.playMode==='together'){if(q?.player===1)G.p1score++;else G.p2score++;updateActivePlayer();}
+  else{G.soloScore++;document.getElementById('solo-score-sb').textContent=G.soloScore;}
+}
 function nextQ(){
-  G.qIdx++;
-  if(G.qIdx>=G.questions.length){showEnd();return;}
+  G.qIdx++;if(G.qIdx>=G.questions.length){showEnd();return;}
   const q=G.questions[G.qIdx];
-  if(G.playMode==='together'){
-    // pass phone if player changed
-    const prevQ=G.questions[G.qIdx-1];
-    if(!prevQ||prevQ.player!==q.player){
-      showPassScreen(q.player);return;
-    }
-  }
+  if(G.playMode==='together'){const prev=G.questions[G.qIdx-1];if(!prev||prev.player!==q.player){showPassScreen(q.player);return;}}
   showQuestion();
 }
 
+// ── End screen ────────────────────────────────────────────
 function showEnd(){
   showScreen('screen-end');
-  markToday(G.playMode==='together'?'T':'A'); // AUTO-MARK
-  document.getElementById('cal-auto-note').textContent='📅 Dagen er automatisk markeret i kalenderen!';
+  markToday(G.playMode==='together'?'T':'A');
+  document.getElementById('cal-auto-note').textContent='📅 Dagen er automatisk markeret! · Tag wurde automatisch markiert!';
+  const notebox=document.getElementById('note-send-box');if(notebox)notebox.style.display='';
+  const status=document.getElementById('note-status');if(status)status.textContent='';
+  const inp=document.getElementById('note-input');if(inp)inp.value='';
   if(G.playMode==='together'){
-    document.getElementById('final-together').style.display='flex';
-    document.getElementById('final-solo').style.display='none';
-    document.getElementById('fsc1-flag').textContent='🇩🇰';
-    document.getElementById('fsc2-flag').textContent='🇩🇪';
-    document.getElementById('fsc1-name').textContent=G.p1;
-    document.getElementById('fsc2-name').textContent=G.p2;
-    document.getElementById('fsc1-score').textContent=G.p1score;
-    document.getElementById('fsc2-score').textContent=G.p2score;
+    document.getElementById('final-together').style.display='flex';document.getElementById('final-solo').style.display='none';
+    document.getElementById('fsc1-flag').textContent='🇩🇰';document.getElementById('fsc2-flag').textContent='🇩🇪';
+    document.getElementById('fsc1-name').textContent=G.p1;document.getElementById('fsc2-name').textContent=G.p2;
+    document.getElementById('fsc1-score').textContent=G.p1score;document.getElementById('fsc2-score').textContent=G.p2score;
     const win=G.p1score>G.p2score?'fsc1':G.p2score>G.p1score?'fsc2':null;
-    document.getElementById('fsc1').className='fsc'+(win==='fsc1'?' winner':'');
-    document.getElementById('fsc2').className='fsc'+(win==='fsc2'?' winner':'');
-    const total=G.p1score+G.p2score;
-    document.getElementById('end-title').textContent=win?(win==='fsc1'?G.p1:G.p2)+' vinder! 🎉':'Uafgjort! 🤝';
-    document.getElementById('end-sub').textContent='I besvarede '+total+' af '+G.totalQ+' spørgsmål';
+    document.getElementById('fsc1').className='fsc'+(win==='fsc1'?' winner':'');document.getElementById('fsc2').className='fsc'+(win==='fsc2'?' winner':'');
+    const wn=win==='fsc1'?G.p1:win==='fsc2'?G.p2:null;
+    document.getElementById('end-title').textContent=wn?wn+' vinder! 🎉':'Uafgjort! 🤝';
+    document.getElementById('end-sub').textContent=(G.p1score+G.p2score)+' point af · von '+G.totalQ;
     document.getElementById('end-trophy').textContent=win?'🏆':'🤝';
   }else{
-    document.getElementById('final-together').style.display='none';
-    document.getElementById('final-solo').style.display='';
-    const isBf=G.soloPlayer==='bf';
-    const name=isBf?(localStorage.getItem('soloNameBf')||'Kæresten'):(localStorage.getItem('soloNameLisa')||'Lisa');
-    document.getElementById('fss-flag').textContent=isBf?'🇩🇪':'🇩🇰';
-    document.getElementById('fss-name').textContent=name;
-    document.getElementById('fss-score').textContent=G.soloScore;
-    document.getElementById('fss-total').textContent='af '+G.totalQ+' point';
+    document.getElementById('final-together').style.display='none';document.getElementById('final-solo').style.display='';
+    const isBf=G.soloPlayer==='bf',name=isBf?(localStorage.getItem('soloNameBf')||'Raffi'):(localStorage.getItem('soloNameLisa')||'Lisa');
+    document.getElementById('fss-flag').textContent=isBf?'🇩🇪':'🇩🇰';document.getElementById('fss-name').textContent=name;
+    document.getElementById('fss-score').textContent=G.soloScore;document.getElementById('fss-total').textContent='af '+G.totalQ+' point · von '+G.totalQ;
     const pct=G.soloScore/G.totalQ;
-    document.getElementById('end-title').textContent=pct>=.8?'Fremragende! 🌟':pct>=.5?'Godt klaret! 👏':'Øv, prøv igen! 💪';
-    document.getElementById('end-sub').textContent=G.soloScore+' rigtige af '+G.totalQ;
+    document.getElementById('end-title').textContent=pct>=.8?'Fremragende! · Ausgezeichnet! 🌟':pct>=.5?'Godt klaret! · Gut gemacht! 👏':'Øv, prøv igen! · Noch einmal! 💪';
+    document.getElementById('end-sub').textContent=G.soloScore+' rigtige · richtig af/von '+G.totalQ;
     document.getElementById('end-trophy').textContent=pct>=.8?'🌟':pct>=.5?'🏆':'💪';
   }
 }
+function replayGame(){const nb=document.getElementById('note-send-box');if(nb)nb.style.display='none';startGame();}
 
-function replayGame(){startGame();}
-
-// ─── Init ───
+// ── Init ──────────────────────────────────────────────────
 initFirebase();
+// Pre-fill who selection if already saved
+const savedWho=localStorage.getItem('myPlayer');
+if(savedWho){_selectedWho=savedWho;selectWho(savedWho);}
 const _code=getCoupleCode();
 if(_code){
-  loadAndListenCalendar();
-  setSyncBadge(fbDB?'ok':'local');
-  showScreen('screen-mode');
-}else{
-  showScreen('screen-setup');
-  setSyncBadge('');
-}
-// Set calendar view to current month
-calViewYear=new Date().getFullYear();
-calViewMonth=new Date().getMonth();
-// Load saved names
-const _ln=localStorage.getItem('soloNameLisa');if(_ln&&document.getElementById('solo-name-lisa')) document.getElementById('solo-name-lisa').value=_ln;
-const _bn=localStorage.getItem('soloNameBf');if(_bn&&document.getElementById('solo-name-bf')) document.getElementById('solo-name-bf').value=_bn;
+  document.getElementById('code-input').value=_code;
+  initAll();showScreen('screen-mode');
+}else{showScreen('screen-setup');setSyncBadge('');}
+calViewYear=new Date().getFullYear();calViewMonth=new Date().getMonth();
+// Restore names — Raffi is default for bf
+const _ln=localStorage.getItem('soloNameLisa')||'Lisa';
+const _bn=localStorage.getItem('soloNameBf')||'Raffi';
+const _snl=document.getElementById('solo-name-lisa');if(_snl)_snl.value=_ln;
+const _snb=document.getElementById('solo-name-bf');if(_snb)_snb.value=_bn;
+const _p2=document.getElementById('p2-name');if(_p2)_p2.value=_bn;
+// Update who-btn label
+document.querySelector('#who-bf .wn').textContent='Raffi';
 </script>
 </body>
 </html>
